@@ -3,7 +3,7 @@
    Shared stylesheet for partners.herohomereach.com
    Brand family: same DNA as herohomereach.com, tuned for a
    premium, strategic, B2B pitch environment (not a blog/content
-   site). See /assets/img/hero-homereach-shield.png for the
+   site). See /herohomereach_logo_web_logo_512px.png for the
    real brand mark — never recreate it in CSS.
    Last updated: 2026-07-07
    ============================================================ */
@@ -254,9 +254,13 @@ h1, h2, h3, .font-head {
   text-align: center;
 }
 .hero__visual-card img {
-  width: 170px;
-  height: 170px;
+  width: 140px;
+  height: 140px;
   margin: 0 auto 20px;
+  background: var(--cream);
+  border-radius: 50%;
+  padding: 16px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
 }
 .hero__visual-card p {
   color: rgba(245, 247, 250, 0.82);
@@ -603,7 +607,13 @@ h1, h2, h3, .font-head {
   gap: 14px;
   margin-bottom: 28px;
 }
-.site-footer__top img { width: 32px; height: 32px; }
+.site-footer__top img {
+  width: 32px;
+  height: 32px;
+  background: var(--cream);
+  border-radius: 50%;
+  padding: 4px;
+}
 .site-footer__top span {
   font-family: var(--font-head);
   color: var(--cream);
