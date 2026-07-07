@@ -1,0 +1,635 @@
+/* ============================================================
+   HERO HOMEREACH PARTNERS — style.css
+   Shared stylesheet for partners.herohomereach.com
+   Brand family: same DNA as herohomereach.com, tuned for a
+   premium, strategic, B2B pitch environment (not a blog/content
+   site). See /assets/img/hero-homereach-shield.png for the
+   real brand mark — never recreate it in CSS.
+   Last updated: 2026-07-07
+   ============================================================ */
+
+/* ── Reset ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+ul, ol { margin: 0; padding: 0; }
+h1, h2, h3, h4, p { margin: 0; }
+
+/* ── Brand tokens ──────────────────────────────────────── */
+:root {
+  /* Core palette — confirmed against official brand board, 2026-07-07 */
+  --navy: #0C2D5E;
+  --mid-navy: #1A4A8A;
+  --gold: #C9973A;
+  --bright-gold: #EAB84A;
+  --cool-white: #F5F7FA;
+  --near-black: #1C1C1E;
+  --warm-gray: #D3D1C7;
+  --forest-green: #1A6B4A;
+
+  /* Warm backgrounds — live on the site already, not on the official
+     board itself, kept as the primary page background so cool-white
+     can stay reserved for contrast panels. */
+  --cream: #FFFCF4;
+  --cream-alt: #F8F2ED;
+
+  --white: #FFFFFF;
+
+  /* Type */
+  --font-head: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Layout */
+  --container: 1180px;
+  --container-narrow: 820px;
+  --radius: 14px;
+  --radius-sm: 8px;
+  --transition: 0.25s ease;
+
+  /* Shadows — soft, navy-tinted, matches main-site elevation language */
+  --shadow-soft: 0 2px 16px rgba(12, 45, 94, 0.06);
+  --shadow-lift: 0 24px 60px rgba(12, 45, 94, 0.14);
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--near-black);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.container--narrow {
+  max-width: var(--container-narrow);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ── Headings & editorial type ────────────────────────── */
+h1, h2, h3, .font-head {
+  font-family: var(--font-head);
+  color: var(--navy);
+  font-weight: 700;
+  line-height: 1.15;
+}
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.lede {
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--near-black);
+}
+.rule {
+  width: 64px;
+  height: 3px;
+  background: var(--gold);
+  border: none;
+  margin: 20px 0;
+}
+.rule--center { margin: 20px auto; }
+
+/* ── Buttons ───────────────────────────────────────────
+   Deliberately distinct from the main site's consumer .btn —
+   quieter, more executive, less "click here for your guide." */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  padding: 15px 30px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+}
+.btn--primary {
+  background: var(--gold);
+  color: var(--navy);
+}
+.btn--primary:hover {
+  background: var(--bright-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(201, 151, 58, 0.28);
+}
+.btn--ghost-light {
+  background: transparent;
+  color: var(--cream);
+  border-color: rgba(245, 247, 250, 0.4);
+}
+.btn--ghost-light:hover {
+  border-color: var(--bright-gold);
+  color: var(--bright-gold);
+  transform: translateY(-2px);
+}
+.btn--ghost-dark {
+  background: transparent;
+  color: var(--navy);
+  border-color: rgba(12, 45, 94, 0.25);
+}
+.btn--ghost-dark:hover {
+  border-color: var(--navy);
+  transform: translateY(-2px);
+}
+
+/* ── Header / Nav ──────────────────────────────────────── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(255, 252, 244, 0.92);
+  backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: 1px solid rgba(12, 45, 94, 0.08);
+}
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.brand__mark {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.brand__word {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--navy);
+  letter-spacing: 0.01em;
+}
+.brand__word span { color: var(--gold); }
+.site-header .btn { padding: 11px 22px; font-size: 14px; }
+
+/* ── Hero ──────────────────────────────────────────────
+   Warm editorial hero: cream field, angled navy panel,
+   real shield mark — not a generic centered SaaS header. */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--cream);
+  padding: 88px 0 96px;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 46%;
+  height: 100%;
+  background: linear-gradient(160deg, var(--navy) 0%, var(--mid-navy) 100%);
+  clip-path: polygon(28% 0, 100% 0, 100% 100%, 0% 100%);
+  z-index: 0;
+}
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+.hero__mark {
+  width: 108px;
+  height: 108px;
+  margin-bottom: 28px;
+}
+.hero h1 {
+  font-size: clamp(34px, 4.4vw, 54px);
+  margin-bottom: 22px;
+}
+.hero .lede {
+  max-width: 540px;
+  margin-bottom: 34px;
+  color: #33383F;
+}
+.hero__ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.hero__visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero__visual-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(245, 247, 250, 0.22);
+  border-radius: var(--radius);
+  padding: 40px 32px;
+  text-align: center;
+}
+.hero__visual-card img {
+  width: 170px;
+  height: 170px;
+  margin: 0 auto 20px;
+}
+.hero__visual-card p {
+  color: rgba(245, 247, 250, 0.82);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+@media (max-width: 940px) {
+  .hero::after { display: none; }
+  .hero__inner { grid-template-columns: 1fr; }
+  .hero__visual { display: none; }
+}
+
+/* ── Editorial text sections (Problem / Thesis) ──────────
+   Two-column editorial blocks — no boxes, no cards. */
+.editorial {
+  padding: 88px 0;
+}
+.editorial--alt { background: var(--cream-alt); }
+.editorial__grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 64px;
+  align-items: start;
+}
+.editorial__grid h2 {
+  font-size: clamp(28px, 3vw, 38px);
+  position: sticky;
+  top: 110px;
+}
+.editorial__body p {
+  margin-bottom: 20px;
+  font-size: 17px;
+  color: #383D45;
+}
+.editorial__body p:last-child { margin-bottom: 0; }
+@media (max-width: 860px) {
+  .editorial__grid { grid-template-columns: 1fr; gap: 24px; }
+  .editorial__grid h2 { position: static; }
+}
+
+/* Pull-quote thesis statement — borrowed from main-site blog
+   pull-quote pattern (gold left border, tinted background). */
+.pull-statement {
+  border-left: 4px solid var(--gold);
+  background: rgba(201, 151, 58, 0.07);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 36px 44px;
+  margin: 48px 0 0;
+}
+.pull-statement p {
+  font-family: var(--font-head);
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-style: italic;
+  color: var(--navy);
+  line-height: 1.4;
+}
+
+/* ── Buyer education pathway ─────────────────────────────
+   Connected step sequence — CSS only, no icon library.
+   Steps 1-5 = Hero HomeReach owned; 6-7 = partner handoff,
+   visually distinguished with the gold accent. */
+.pathway { padding: 96px 0; background: var(--cream); }
+.pathway__head { max-width: var(--container-narrow); margin: 0 auto 56px; text-align: center; }
+.pathway__steps {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0;
+  position: relative;
+}
+.pathway__steps::before {
+  content: '';
+  position: absolute;
+  top: 22px;
+  left: 6%;
+  right: 6%;
+  height: 2px;
+  background: repeating-linear-gradient(to right, var(--warm-gray) 0 8px, transparent 8px 14px);
+  z-index: 0;
+}
+.step {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 8px;
+}
+.step__num {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--cream);
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+.step--handoff .step__num {
+  background: var(--gold);
+  color: var(--navy);
+}
+.step p {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--near-black);
+  line-height: 1.4;
+}
+.pathway__legend {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  margin-top: 44px;
+  font-size: 13px;
+  color: #555;
+}
+.pathway__legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.legend-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  display: inline-block;
+}
+.legend-dot--navy { background: var(--navy); }
+.legend-dot--gold { background: var(--gold); }
+
+@media (max-width: 900px) {
+  .pathway__steps { grid-template-columns: 1fr; gap: 28px; text-align: left; }
+  .pathway__steps::before { display: none; }
+  .step { display: flex; align-items: center; gap: 16px; text-align: left; padding: 0; }
+  .step__num { margin: 0; flex-shrink: 0; }
+}
+
+/* ── Scenarios ("What lenders can bring to agents") ──────
+   Text-led editorial scenarios, not icon cards. */
+.scenarios { padding: 88px 0; background: var(--cream-alt); }
+.scenarios__head { max-width: var(--container-narrow); margin-bottom: 52px; }
+.scenario-list { display: flex; flex-direction: column; }
+.scenario {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 40px;
+  padding: 34px 0;
+  border-top: 1px solid rgba(12, 45, 94, 0.12);
+}
+.scenario:last-child { border-bottom: 1px solid rgba(12, 45, 94, 0.12); }
+.scenario__tag {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--gold);
+}
+.scenario__body h3 {
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+.scenario__body p { color: #383D45; }
+@media (max-width: 720px) {
+  .scenario { grid-template-columns: 1fr; gap: 10px; }
+}
+
+/* ── System components ────────────────────────────────────
+   Compact divided list rather than a card grid. Doubles as
+   the #campaign-system-preview anchor for the hero's
+   secondary CTA. */
+.components { padding: 96px 0; background: var(--cream); }
+.components__head { max-width: var(--container-narrow); margin: 0 auto 52px; text-align: center; }
+.components__list {
+  max-width: 880px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.component-item {
+  display: flex;
+  gap: 16px;
+  padding: 22px 24px;
+  border-bottom: 1px solid rgba(12, 45, 94, 0.1);
+}
+.component-item:nth-child(odd) { border-right: 1px solid rgba(12, 45, 94, 0.1); }
+.component-item__num {
+  font-family: var(--font-head);
+  font-weight: 700;
+  color: var(--warm-gray);
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.component-item h3 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.component-item p { font-size: 14px; color: #555; }
+@media (max-width: 720px) {
+  .components__list { grid-template-columns: 1fr; }
+  .component-item:nth-child(odd) { border-right: none; }
+}
+
+/* ── Comparison ────────────────────────────────────────── */
+.comparison { padding: 96px 0; background: var(--cream-alt); }
+.comparison__head { max-width: var(--container-narrow); margin: 0 auto 52px; text-align: center; }
+.comparison__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lift);
+}
+.comparison__col { padding: 44px 40px; }
+.comparison__col--vendor { background: var(--white); }
+.comparison__col--hero { background: var(--navy); }
+.comparison__col h3 {
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+.comparison__col--vendor h3 { color: var(--near-black); }
+.comparison__col--hero h3 { color: var(--cream); }
+.comparison__col ul { list-style: none; }
+.comparison__col li {
+  padding: 10px 0 10px 28px;
+  position: relative;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.comparison__col--vendor li { color: #444; border-top: 1px solid rgba(12,45,94,0.08); }
+.comparison__col--vendor li:first-child { border-top: none; }
+.comparison__col--vendor li::before {
+  content: '–';
+  position: absolute; left: 0; top: 10px;
+  color: var(--warm-gray);
+  font-weight: 700;
+}
+.comparison__col--hero li { color: rgba(245,247,250,0.9); border-top: 1px solid rgba(245,247,250,0.14); }
+.comparison__col--hero li:first-child { border-top: none; }
+.comparison__col--hero li::before {
+  content: '+';
+  position: absolute; left: 0; top: 10px;
+  color: var(--bright-gold);
+  font-weight: 700;
+}
+@media (max-width: 760px) {
+  .comparison__grid { grid-template-columns: 1fr; }
+}
+
+/* ── Dark proof / credibility band ───────────────────────
+   Careful, non-overclaiming benchmark language only. */
+.proof-band {
+  background: var(--navy);
+  padding: 88px 0;
+}
+.proof-band__inner {
+  max-width: var(--container-narrow);
+  margin: 0 auto;
+  text-align: center;
+}
+.proof-band h2 { color: var(--cream); font-size: clamp(26px, 3vw, 34px); }
+.proof-band .lede { color: rgba(245,247,250,0.8); max-width: 640px; margin: 20px auto 0; }
+.proof-band__note {
+  margin-top: 32px;
+  font-size: 13px;
+  color: rgba(245,247,250,0.55);
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+.proof-band__sources {
+  margin-top: 28px;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--bright-gold);
+  font-weight: 700;
+}
+
+/* ── Fit gate ─────────────────────────────────────────── */
+.fit-gate { padding: 96px 0; background: var(--cream); }
+.fit-gate__head { max-width: var(--container-narrow); margin: 0 auto 52px; text-align: center; }
+.fit-gate__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+.fit-col h3 {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.fit-col--good h3 { color: var(--forest-green); }
+.fit-col--not h3 { color: #6B6560; }
+.fit-col ul { list-style: none; }
+.fit-col li {
+  padding: 10px 0 10px 30px;
+  position: relative;
+  font-size: 15px;
+  color: #383D45;
+  border-top: 1px solid rgba(12,45,94,0.08);
+}
+.fit-col li:first-child { border-top: none; }
+.fit-col--good li::before {
+  content: '✓';
+  position: absolute; left: 0; top: 9px;
+  color: var(--gold);
+  font-weight: 700;
+}
+.fit-col--not li::before {
+  content: '✕';
+  position: absolute; left: 0; top: 9px;
+  color: var(--warm-gray);
+  font-weight: 700;
+}
+@media (max-width: 720px) {
+  .fit-gate__grid { grid-template-columns: 1fr; gap: 36px; }
+}
+
+/* ── Final CTA ────────────────────────────────────────── */
+.final-cta {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--mid-navy) 100%);
+  padding: 96px 0;
+  text-align: center;
+}
+.final-cta h2 { color: var(--cream); font-size: clamp(28px, 3.4vw, 40px); margin-bottom: 18px; }
+.final-cta p { color: rgba(245,247,250,0.78); max-width: 520px; margin: 0 auto 36px; }
+
+/* ── Footer ───────────────────────────────────────────── */
+.site-footer {
+  background: var(--near-black);
+  padding: 56px 0 40px;
+}
+.site-footer__top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.site-footer__top img { width: 32px; height: 32px; }
+.site-footer__top span {
+  font-family: var(--font-head);
+  color: var(--cream);
+  font-weight: 700;
+  font-size: 17px;
+}
+.site-footer__disclaimer {
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(245,247,250,0.55);
+  max-width: 900px;
+  margin-bottom: 24px;
+}
+.site-footer__meta {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 12px;
+  color: rgba(245,247,250,0.4);
+  border-top: 1px solid rgba(245,247,250,0.1);
+  padding-top: 20px;
+}
+.site-footer__meta a { color: rgba(245,247,250,0.55); text-decoration: none; }
+.site-footer__meta a:hover { color: var(--bright-gold); }
+
+/* ── Utility ──────────────────────────────────────────── */
+.text-center { text-align: center; }
+.mx-auto { margin-left: auto; margin-right: auto; }
