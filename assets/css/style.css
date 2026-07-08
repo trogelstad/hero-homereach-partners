@@ -533,3 +533,22 @@ p:last-child { margin-bottom: 0; }
 .system-step p { font-size: 12.5px; color: #5c5c5c; line-height: 1.55; margin: 0; }
 @media (max-width: 1024px) { .system-steps { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 640px) { .system-steps { grid-template-columns: 1fr; } }
+
+/* ── Lenders hero: left-aligned, Programs-page hierarchy (2026-07-08) ──
+   Reuses the existing glow-lit navy #page-hero background (no photo
+   asset yet). Borrows the text-left + stat-row structure from the
+   main site's Programs page hero without duplicating its photo trick.
+   Scoped to .lender-hero-content so the shared centered .page-hero-inner
+   default (still used by future pages) is untouched. */
+.lender-hero-content { text-align: left; max-width: 760px; margin: 0; }
+.lender-hero-content .hero-mark { margin: 0 0 20px; }
+.lender-hero-content .eyebrow.white { justify-content: flex-start; }
+.lender-hero-content .lede { margin: 0 0 14px; }
+.lender-hero-content .hero-bold-line { margin: 0 0 32px; }
+.lender-hero-content .hero-ctas { justify-content: flex-start; }
+.lender-hero-content .hero-trust { text-align: left; }
+
+.hero-stats { display: flex; gap: 40px; flex-wrap: wrap; padding-top: 28px; margin-top: 28px; border-top: 1px solid rgba(255,255,255,0.14); }
+.hero-stat-num { font-family: var(--font-head); font-size: 32px; font-weight: 900; color: var(--gold); line-height: 1; }
+.hero-stat-label { font-size: 12.5px; color: rgba(255,255,255,0.55); margin-top: 4px; line-height: 1.4; max-width: 170px; }
+@media (max-width: 640px) { .hero-stats { gap: 24px; } }
