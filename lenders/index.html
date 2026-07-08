@@ -1,163 +1,670 @@
-# /lenders/ Page Rewrite Plan — Buyer-Conversation-First
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For Lenders | Hero HomeReach Partners</title>
+<meta name="description" content="Hero HomeReach gives lending teams a localized buyer education campaign system they can bring to real estate agents — not another lead pitch." />
+<link rel="icon" href="../herohomereach_logo_web_logo_512px.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
 
-Reviewed the current committed page in full before drafting this (670 lines, 12 sections). This is a reorder-and-reframe, not a rebuild — most existing components are structurally sound and get new copy, not new code. No code included yet, per your request.
+<!-- ════════════ NAV ════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="../herohomereach_logo_web_logo_512px.png" alt="Hero HomeReach shield">
+      <div class="nav-wordmark">Hero HomeReach <span>Partners</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="/lenders/" class="active">Lenders</a>
+      <span class="soon">Realtors</span>
+      <a href="/#campaign-system">Campaign System</a>
+      <a href="/#how-trust-moves">Trust Model</a>
+    </div>
+    <div class="nav-cta"><a href="mailto:trent@rogelstadmedia.com" class="btn btn-gold btn-sm btn-arrow">Request Partner Review</a></div>
+    <div class="nav-hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
 
----
+<!-- ═══════════════════════════════════════
+     HERO — glow-lit navy, matches main-site page-hero pattern
+     Messaging source: /partner-opportunity/ hero + hero-bold-line
+════════════════════════════════════════ -->
+<section id="page-hero">
+  <div class="container">
+    <div class="page-hero-inner lender-hero-content">
+      <img class="hero-mark" src="../herohomereach_logo_web_logo_512px.png" alt="Hero HomeReach shield">
+      <div class="eyebrow white">For Lending Teams</div>
+      <h1>Give Agents a Buyer Education Asset, <span>Not Another Lender Pitch</span></h1>
+      <p class="lede white">
+        Hero HomeReach helps Colorado heroes and first-time buyers understand what may be possible before
+        they choose an agent, lender or path forward. A partner opportunity gives the right local lending
+        team a way to step into that buyer conversation after trust has already started through education.
+      </p>
+      <p class="hero-bold-line">Education earns the trust. The right local team earns the conversation.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold btn-arrow" href="mailto:trent@rogelstadmedia.com">Request Partner Review</a>
+        <a class="btn btn-outline" href="#partnership-provides">See the Campaign System</a>
+      </div>
+      <div class="hero-trust">Partner availability is reviewed by market, audience, category and fit.</div>
 
-## 1. Recommended Section Order
+      <div class="hero-stats">
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">8%</div>
+          <div class="hero-stat-label">Landing page conversion &mdash; 60% above the typical range</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">31% Lower</div>
+          <div class="hero-stat-label">Cost per lead vs. Facebook mortgage benchmarks</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">11.1%</div>
+          <div class="hero-stat-label">Lead-to-consultation &mdash; 39% above the typical range</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-| # | Section | Action |
-|---|---------|--------|
-| 1 | Hero | **Rewrite** — new buyer-first H1/copy you provided |
-| 2 | The Difference ("not another lead source") | **Rewrite** — reframe away from agent value, new question list |
-| 3 | The Buyer Education Path | **Keep & lightly edit** — stays central, per your instruction |
-| 4 | Partner Fit | **Move up + rewrite intro** — was near the bottom, now sits right after the path |
-| 5 | What Selected Lender Partners Receive | **Rewrite** — replaces the campaign-asset card list with your 5 benefit blocks |
-| 6 | Campaign System / Sample Concepts | **Merge + reframe** — see flag below |
-| 7 | A Useful Resource for Agent Relationships, Too | **Shrink + demote** — consolidates two current sections into one small secondary block |
-| 8 | Proof / Benchmark Signals | **Keep, minor copy update** — already close to your wording |
-| 9 | Final CTA | **Rewrite** — new heading/body/microcopy |
+<!-- Quick-nav pill row -->
+<section class="quicknav">
+  <div class="container">
+    <div class="quicknav-row">
+      <a href="#not-lead-source">The Difference</a>
+      <a href="#lender-bd">For Agents</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#partnership-provides">What You Get</a>
+      <a href="#buyer-path">Buyer Path</a>
+      <a href="#support-expands">Proof</a>
+      <a href="#fit-gate">Partner Fit</a>
+    </div>
+  </div>
+</section>
 
-Cut entirely: the current standalone **"How It Works"** 3-step section and the **"What Lenders Can Bring to Agents"** 3-scenario-card section. Reasoning below.
+<!-- ═══════════════════════════════════════
+     THE DIFFERENCE
+     Messaging source: /partner-opportunity/ "This is not another lead source"
+════════════════════════════════════════ -->
+<section class="section bg-cream" id="not-lead-source">
+  <div class="container">
+    <div class="section-intro fade-up">
+      <div class="eyebrow">The Difference</div>
+      <h2>This is not another lead source</h2>
+      <p class="lede">Most real estate and lending marketing starts too late. By the time a buyer fills out a portal form or clicks a generic &ldquo;get pre-approved&rdquo; ad, they may already feel overwhelmed, skeptical or chased.</p>
+      <p class="lede">Hero HomeReach starts earlier, with the questions Colorado buyers are already asking:</p>
+    </div>
+    <ul class="question-list fade-up delay-1">
+      <li>Can I afford to start?</li>
+      <li>Is there help for my profession?</li>
+      <li>What does a VA loan really cover?</li>
+      <li>What are closing costs?</li>
+      <li>Can seller concessions or assistance change the math?</li>
+      <li>Who can explain this without pressure?</li>
+    </ul>
+    <p class="emphasis-line fade-up delay-1">That earlier moment is where trust can be built.</p>
+    <div class="comparison-3 fade-up delay-2">
+      <div class="comparison-3__card">
+        <div class="comparison-3__label">Portal Leads</div>
+        <p>Often late, crowded and shared with multiple competitors.</p>
+      </div>
+      <div class="comparison-3__card">
+        <div class="comparison-3__label">Generic Ad Leads</div>
+        <p>Often cold, broad and built around a transaction before the buyer has clarity.</p>
+      </div>
+      <div class="comparison-3__card comparison-3__card--highlight">
+        <div class="comparison-3__label">Hero HomeReach Conversations</div>
+        <p>Audience-specific, education-first and shaped around practical next steps before partner introduction.</p>
+      </div>
+    </div>
+    <p class="emphasis-line fade-up" style="margin-top: 30px;">For a lender, this is something more useful to bring agents than &ldquo;send me buyers.&rdquo;</p>
+  </div>
+</section>
 
----
+<div class="divider-banner">
+  <div class="container"><p>Most lenders ask agents for referrals. This gives you something better to bring instead. &rarr;</p></div>
+</div>
 
-## 2. Section-by-Section Notes (Keep / Rewrite / Move / Remove)
+<!-- ═══════════════════════════════════════
+     A STRONGER REASON FOR AGENTS TO PAY ATTENTION
+     Messaging source: /partner-opportunity/ "A stronger reason for
+     agents to pay attention"
+════════════════════════════════════════ -->
+<section class="section bg-navy" id="lender-bd">
+  <div class="container" style="position:relative; z-index:2;">
+    <div class="split-grid">
+      <div class="fade-up">
+        <div class="eyebrow on-navy">For Lenders</div>
+        <h2 class="on-navy-text">A stronger reason for agents to pay attention</h2>
+        <p class="lede white" style="margin-top:16px;">Most lenders are asking agents for referrals. Hero HomeReach gives the right lender something more useful to bring into that conversation: a buyer education system built around the questions agents hear every week.</p>
+        <div class="common-q dark">
+          &ldquo;How do I get in front of more agents without sending another &lsquo;send me your buyers&rsquo; message?&rdquo;
+          <div class="cq-sub">The partnership is not only about buyer visibility it becomes an agent-facing business development asset.</div>
+        </div>
+        <p class="lede white">A way to help agents talk about VA loans, down payment assistance, seller concessions, closing-cost planning and first-time buyer readiness with more confidence.</p>
+      </div>
+      <div class="fade-up delay-1">
+        <div class="stat-card">
+          <div class="pill-row" style="margin:0 0 22px;">
+            <span class="pill dark">Lender-Agent Conversations</span>
+          </div>
+          <ul class="fit-list fit-list--yes" style="gap:16px;">
+            <li style="color:rgba(255,255,255,0.85);"><strong style="color:#fff;">For lender-agent conversations —</strong> give agents useful education assets instead of another &ldquo;send me buyers&rdquo; message.</li>
+            <li style="color:rgba(255,255,255,0.85);"><strong style="color:#fff;">For buyer trust —</strong> meet buyers with plain-English guidance before they feel pressured to choose a lender.</li>
+            <li style="color:rgba(255,255,255,0.85);"><strong style="color:#fff;">For market positioning —</strong> show up as the team connected to clarity, preparation and practical next steps.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-**Hero (`#page-hero`)** — Rewrite. Current H1 ("Give Agents a Buyer Education Asset...") is the exact thing you flagged. Full new copy below.
+<!-- ═══════════════════════════════════════
+     WHAT LENDERS CAN BRING TO AGENTS
+════════════════════════════════════════ -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="section-intro fade-up">
+      <div class="eyebrow">Made Concrete</div>
+      <h2>What lenders can bring to agents</h2>
+    </div>
+    <div class="value-grid">
+      <div class="value-card fade-up">
+        <div class="value-card__label"><span>Military &amp; Veteran</span><span class="value-card__tag">Scenario</span></div>
+        <div class="value-card__body">
+          <h3>A VA buyer readiness guide for military clients</h3>
+          <p>Something concrete to hand an agent's military-connected clients before the VA loan conversation even starts.</p>
+        </div>
+      </div>
+      <div class="value-card fade-up delay-1">
+        <div class="value-card__label"><span>Education</span><span class="value-card__tag">Scenario</span></div>
+        <div class="value-card__body">
+          <h3>A teacher homebuyer assistance explainer for school district contacts</h3>
+          <p>A plain-English resource a lender can bring into a school district relationship, not a cold pitch.</p>
+        </div>
+      </div>
+      <div class="value-card fade-up delay-2">
+        <div class="value-card__label"><span>First Responders</span><span class="value-card__tag">Scenario</span></div>
+        <div class="value-card__body">
+          <h3>A first responder DPA conversation starter for local networks</h3>
+          <p>A reason to open a conversation with a local department or union that isn&rsquo;t &ldquo;send me your people.&rdquo;</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-**The Difference (`#not-lead-source`)** — Rewrite. Keep the `comparison-3` cards (Portal Leads / Generic Ad Leads / Hero HomeReach Conversations) — they're not agent-first, they still work. **Cut** the current closing line *"For a lender, this is something more useful to bring agents than 'send me buyers.'"* — that's the agent-first framing you're moving away from, and your new copy doesn't include a replacement line, so the section just ends on "That earlier moment is where trust can be built." **Also cut** the divider banner right after this section — *"Most lenders ask agents for referrals. This gives you something better to bring instead."* It currently sits near the very top of the page, which front-loads the agent angle before a reader even reaches the buyer-first content. If you want a divider there, I'd suggest something buyer-focused instead (draft below).
+<!-- ═══════════════════════════════════════
+     HOW IT WORKS
+     Messaging source: /partner-opportunity/ "How Hero HomeReach
+     creates better buyer conversations"
+════════════════════════════════════════ -->
+<section class="section bg-cream" id="how-it-works">
+  <div class="container">
+    <div class="section-intro fade-up">
+      <div class="eyebrow">How It Works</div>
+      <h2>How Hero HomeReach creates better buyer conversations</h2>
+      <p class="lede">Hero HomeReach starts with education, not pressure. That creates a better first step for buyers and a better next conversation for the right partner team.</p>
+    </div>
+    <div class="value-grid fade-up delay-1">
+      <div class="value-card">
+        <div class="value-card__label"><span>01</span><span class="value-card__tag">Step</span></div>
+        <div class="value-card__body">
+          <h3>Buyers meet education first</h3>
+          <p>Hero HomeReach campaigns and resources answer the questions buyers are already searching before they are ready for a sales conversation.</p>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-card__label"><span>02</span><span class="value-card__tag">Step</span></div>
+        <div class="value-card__body">
+          <h3>Trust builds before the handoff</h3>
+          <p>Guides, landing pages and follow-up help buyers understand their options, timing and next best questions.</p>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-card__label"><span>03</span><span class="value-card__tag">Step</span></div>
+        <div class="value-card__body">
+          <h3>The right team enters with context</h3>
+          <p>When a buyer is ready for help, the partner conversation starts from education and clarity, not a cold pitch.</p>
+        </div>
+      </div>
+    </div>
+    <div class="common-q fade-up" style="margin-top:32px;">
+      The partner opportunity is not supporting a platform.
+      <div class="cq-sub">It is stepping into a buyer conversation after education has already created trust.</div>
+    </div>
+  </div>
+</section>
 
-**"A Stronger Reason for Agents to Pay Attention" (`#lender-bd`, navy)** — This and the next section are what your new "secondary only" instruction is about. Currently a full navy section with its own stat-card, pill-row and 3-item list — too much real estate for a secondary point. Collapse into the much shorter Section 7 below.
+<!-- ═══════════════════════════════════════
+     WHAT A HERO HOMEREACH PARTNERSHIP PROVIDES
+     Messaging source: /partner-opportunity/ "What a Hero HomeReach
+     partnership provides" — CSS mockups stand in for pv-*.webp,
+     which don't exist yet. Anchor target for hero's secondary CTA.
+════════════════════════════════════════ -->
+<section class="section bg-white" id="partnership-provides">
+  <div class="container">
+    <div class="section-intro fade-up">
+      <div class="eyebrow">Partnership Value</div>
+      <h2>What a Hero HomeReach partnership provides</h2>
+      <p class="lede">A partnership is best understood as a localized buyer education campaign system. The goal is to build trust first, then create a cleaner path into the right local conversation.</p>
+    </div>
+    <div class="value-grid">
 
-**"What Lenders Can Bring to Agents"** (3 scenario cards: VA guide, teacher explainer, first-responder conversation starter) — **Remove.** Your new agent-relationship copy is one paragraph; these three scenario cards are a level of detail that belongs in a future dedicated agent-relationships page (or `/realtors/`), not demoted-and-shrunk here. Removing avoids the section feeling like a shrunk-but-still-bloated afterthought.
+      <div class="value-card fade-up">
+        <div class="value-card__label"><span>Audience-Specific Education Ads</span><span class="value-card__tag">Campaign Asset</span></div>
+        <div class="value-card__media">
+          <!-- CSS mockup placeholder. Replace with:
+               <img src="/assets/img/concepts/hhr-generic-meta-ad.webp" alt="..."> -->
+          <div class="asset-mockup-frame">
+            <div class="mockup-phone"><div class="mockup-phone-screen">
+              <div class="mp-avatar-row"><div class="mp-avatar"></div><div class="mp-name">Hero HomeReach</div></div>
+              <div class="mp-headline">Colorado heroes deserve a clearer path home.</div>
+              <div class="mp-body">Explore assistance, closing cost help and smart next steps before you start guessing.</div>
+              <div class="mp-cta">Get the Guide</div>
+            </div></div>
+          </div>
+        </div>
+        <div class="value-card__body">
+          <h3>Audience-specific education ads</h3>
+          <p>Hero HomeReach-owned creative built around the buyer&rsquo;s real question, such as VA planning, teacher assistance, healthcare worker homebuyer help, first responder options or first-time buyer readiness.</p>
+        </div>
+      </div>
 
-**"How It Works" (`#how-it-works`, 3-step: buyers meet education first / trust builds before handoff / right team enters with context)** — **Remove.** This is a lower-resolution restatement of the Buyer Education Path section that immediately follows it today. Once the path section gets your new 5-step framing, keeping both is redundant — same idea told twice in a row.
+      <div class="value-card fade-up delay-1">
+        <div class="value-card__label"><span>Dedicated Landing Pages</span><span class="value-card__tag">Campaign Asset</span></div>
+        <div class="value-card__media">
+          <!-- CSS mockup placeholder. Replace with:
+               <img src="/assets/img/concepts/landing-page-preview.webp" alt="..."> -->
+          <div class="asset-mockup-frame">
+            <div class="mockup-browser">
+              <div class="mb-chrome"><div class="mb-dots"><span></span><span></span><span></span></div><div class="mb-url">guide.herohomereach.com</div></div>
+              <div class="mb-hero">
+                <div class="mb-headline">Start With the Colorado Homebuyer Guide</div>
+                <div class="mb-field">Name</div><div class="mb-field">Email</div><div class="mb-field">Buyer Type</div>
+                <div class="mb-cta">Get the Free Guide</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="value-card__body">
+          <h3>Dedicated landing pages</h3>
+          <p>Focused pages that match the campaign promise and help buyers understand the next step without dropping them onto a generic homepage.</p>
+        </div>
+      </div>
 
-**"What a Hero HomeReach Partnership Provides"** — Rewrite per your 5 benefit blocks. I'd also drop the "Campaign Asset" tag label and the ad-mockup visual in each card (phone ad, browser preview, etc.) — those visuals are exactly what makes it read as a campaign package. Simpler benefit cards (icon/number + heading + body, no mockup screenshot) fit your reframe better.
+      <div class="value-card fade-up delay-2">
+        <div class="value-card__label"><span>Plain-English Guides</span><span class="value-card__tag">Campaign Asset</span></div>
+        <div class="value-card__media">
+          <!-- CSS mockup placeholder. Replace with:
+               <img src="/assets/img/concepts/hhr-guide-cover.webp" alt="..."> -->
+          <div class="asset-mockup-frame">
+            <div class="mockup-guide">
+              <div class="mg-shadow1"></div><div class="mg-shadow2"></div>
+              <div class="mg-cover">
+                <div class="mg-title">Colorado Homebuyer Readiness Guide</div>
+                <div class="mg-sub">Assistance, closing costs and next steps in plain English</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="value-card__body">
+          <h3>Plain-English guides and resources</h3>
+          <p>Downloadable resources that give buyers a low-pressure way to raise their hand while learning what questions to ask next.</p>
+        </div>
+      </div>
 
-**The Buyer Education Path (`#buyer-path`)** — Keep central, per your instruction. Two small fixes: the label "Guide or Resource **Funnel**" needs to lose "funnel" (your explicit ban) — rename to "Guide or Resource Path." Rename the final node from "Partner Review & Routing" to something closer to your "local lending next step" language.
+      <div class="value-card fade-up">
+        <div class="value-card__label"><span>Follow-Up &amp; Nurture Path</span><span class="value-card__tag">Campaign Asset</span></div>
+        <div class="value-card__media">
+          <!-- CSS mockup placeholder. Replace with:
+               <img src="/assets/img/concepts/email-nurture-preview.webp" alt="..."> -->
+          <div class="asset-mockup-frame">
+            <div class="mockup-email">
+              <div class="me-topbar">Inbox</div>
+              <div class="me-msg"><div class="me-subject">Your guide is ready. Here is what to look at first.</div><div class="me-snippet">Start with the sections on assistance, closing costs and timing.</div></div>
+              <div class="me-msg"><div class="me-subject">What to ask before choosing your path</div><div class="me-snippet">A short follow-up to keep things moving at your pace.</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="value-card__body">
+          <h3>Follow-up and nurture path</h3>
+          <p>Helpful follow-up that keeps the relationship warm while buyers think through timing, affordability, loan type, assistance options and readiness.</p>
+        </div>
+      </div>
 
-**Flag — 5 steps vs. 6 nodes:** your new buyer-path copy lists exactly 5 steps (education campaign → campaign page → guide/tool → follow-up → local lending conversation). The current section has 6 nodes — it splits out a "Multiple Buyer Paths" node between the ad and the landing page. Two options:
-- **(A)** Fold "Multiple Buyer Paths" into the campaign-page node's caption and trim to a clean 5-node row (matches your new copy exactly).
-- **(B)** Keep 6 nodes since the section is explicitly "keep and improve," and the extra node isn't wrong, just additional detail.
-My read: (A) is cleaner and matches what you wrote, but flagging rather than assuming — let me know which you want before I touch the visual layout.
+      <div class="value-card fade-up delay-1">
+        <div class="value-card__label"><span>Partner-Ready Conversation Path</span><span class="value-card__tag">Campaign Asset</span></div>
+        <div class="value-card__media">
+          <!-- CSS mockup placeholder. Replace with:
+               <img src="/assets/img/concepts/partner-handoff-preview.webp" alt="..."> -->
+          <div class="asset-mockup-frame asset-mockup-frame--navy">
+            <div class="mockup-handoff">
+              <div class="mh-title">Ready for a real conversation?</div>
+              <div class="mh-sub">When a buyer is ready for guidance beyond education, the right local lender matters.</div>
+              <div class="mh-tags"><span class="mh-tag">Lender Path</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="value-card__body">
+          <h3>Partner-ready conversation path</h3>
+          <p>A clearer next step for buyers who are ready to talk with a local lender, plus benchmark-based reporting so partners can understand campaign response.</p>
+        </div>
+      </div>
 
-**"Sample Concepts"** (bg-navy, 3 concept cards: VA / Educator / Healthcare & First Responder) — **Flag — overlaps with your Section 6.** Your Section 6 spec ("Campaign System Visual / How It Works") describes the same 5-step flow as Section 3's Buyer Education Path, just worded slightly differently (Meta Education Ad → Dedicated Campaign Page → Guide or Tool → Education Follow-Up → Partner-Ready Conversation Context vs. Section 3's audience-specific education campaign → campaign page → guide/tool → follow-up → local lending conversation). Building both as full step-diagrams back to back would repeat the same idea twice.
+    </div>
+    <p class="emphasis-line fade-up" style="margin-top: 36px; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto;">For the right team, the value is not just visibility. It is entering the conversation after trust has already started.</p>
+  </div>
+</section>
 
-My recommendation: don't build Section 6 as a second step diagram. Instead, keep the existing **Sample Concepts** 3-card section (it's genuinely different content — concrete campaign examples, not a process explainer) for that slot, add your line *"Meta may help buyers find the path, but the value is the education system behind the click"* as its lead-in, and cut its current closing line (*"If your team knows how to guide buyers through complex options, Hero HomeReach helps put you in front of the people who need that guidance most"* — agent-facing, same issue as elsewhere). That gives you the Meta-is-a-doorway reframe without a duplicate diagram. Flagging this instead of just picking for you, since it's a real structural call.
+<div class="divider-banner">
+  <div class="container"><p>Every campaign starts with education, not a pitch. See how buyers move through the system below. &darr;</p></div>
+</div>
 
-**Proof / Credibility (`#support-expands`)** — Keep, matches your direction closely already. Two small updates: add "or ROI" to the guaranteed-outcomes disclaimer to match your exact new wording, and don't add a stat row here beyond what's already there (see hero flag below).
+<!-- ═══════════════════════════════════════
+     THE BUYER EDUCATION PATH
+     Messaging source: /partner-opportunity/ "The buyer education path"
+════════════════════════════════════════ -->
+<section class="section bg-cream" id="buyer-path">
+  <div class="container">
+    <div class="section-intro fade-up">
+      <div class="eyebrow">Buyer Journey</div>
+      <h2>The buyer education path</h2>
+      <p class="lede">The system is designed to meet buyers before they are ready for pressure, help them understand their options and create a more informed path toward the right local conversation.</p>
+    </div>
+    <div class="path-track fade-up delay-1">
+      <div class="path-row">
+        <div class="path-node">
+          <div class="path-marker">1</div>
+          <!-- CSS mockup placeholder. Replace with:
+               <img src="/assets/img/concepts/hhr-generic-meta-ad.webp" alt="..."> -->
+          <div class="asset-mockup-frame">
+            <div class="mockup-phone"><div class="mockup-phone-screen">
+              <div class="mp-avatar-row"><div class="mp-avatar"></div><div class="mp-name">Hero HomeReach</div></div>
+              <div class="mp-headline">Colorado heroes deserve a clearer path home.</div>
+              <div class="mp-body">Explore assistance, closing cost help and smart next steps before you start guessing.</div>
+              <div class="mp-cta">Get the Guide</div>
+            </div></div>
+          </div>
+          <div class="path-label">Audience-Specific Meta Ad</div>
+          <div class="path-caption">Campaigns start with the questions buyers are already asking, not generic &ldquo;call me today&rdquo; ads.</div>
+        </div>
+        <div class="path-node">
+          <div class="path-marker">2</div>
+          <!-- CSS mockup placeholder. Replace with:
+               <img src="/assets/img/concepts/multiple-buyer-paths.webp" alt="..."> -->
+          <div class="asset-mockup-frame">
+            <div class="mockup-carousel">
+              <div class="mc-card"><div class="mc-title">Down Payment Help</div><div class="mc-sub">What assistance may cover</div></div>
+              <div class="mc-card"><div class="mc-title">Closing Costs</div><div class="mc-sub">How seller credits can change the plan</div></div>
+              <div class="mc-card"><div class="mc-title">First Steps</div><div class="mc-sub">What to ask before you apply</div></div>
+            </div>
+          </div>
+          <div class="path-label">Multiple Buyer Paths</div>
+          <div class="path-caption">One campaign can show more than one path, helping buyers self-identify by their own question or need.</div>
+        </div>
+        <div class="path-node">
+          <div class="path-marker">3</div>
+          <!-- CSS mockup placeholder. Replace with:
+               <img src="/assets/img/concepts/landing-page-preview.webp" alt="..."> -->
+          <div class="asset-mockup-frame">
+            <div class="mockup-browser">
+              <div class="mb-chrome"><div class="mb-dots"><span></span><span></span><span></span></div><div class="mb-url">guide.herohomereach.com</div></div>
+              <div class="mb-hero">
+                <div class="mb-headline">Start With the Colorado Homebuyer Guide</div>
+                <div class="mb-field">Name</div><div class="mb-field">Email</div><div class="mb-field">Buyer Type</div>
+                <div class="mb-cta">Get the Free Guide</div>
+              </div>
+            </div>
+          </div>
+          <div class="path-label">Dedicated Landing Page</div>
+          <div class="path-caption">Focused landing pages keep the buyer in the same conversation they clicked on instead of sending them to a generic homepage.</div>
+        </div>
+      </div>
+      <div class="path-row-connector">&darr;</div>
+      <div class="path-row">
+        <div class="path-node">
+          <div class="path-marker">4</div>
+          <!-- CSS mockup placeholder. Replace with:
+               <img src="/assets/img/concepts/hhr-guide-cover.webp" alt="..."> -->
+          <div class="asset-mockup-frame">
+            <div class="mockup-guide">
+              <div class="mg-shadow1"></div><div class="mg-shadow2"></div>
+              <div class="mg-cover">
+                <div class="mg-title">Colorado Homebuyer Readiness Guide</div>
+                <div class="mg-sub">Assistance, closing costs and next steps in plain English</div>
+              </div>
+            </div>
+          </div>
+          <div class="path-label">Guide or Resource Funnel</div>
+          <div class="path-caption">A plain-English resource gives buyers a low-pressure reason to raise their hand and keep learning.</div>
+        </div>
+        <div class="path-node">
+          <div class="path-marker">5</div>
+          <!-- CSS mockup placeholder. Replace with:
+               <img src="/assets/img/concepts/email-nurture-preview.webp" alt="..."> -->
+          <div class="asset-mockup-frame">
+            <div class="mockup-email">
+              <div class="me-topbar">Inbox</div>
+              <div class="me-msg"><div class="me-subject">Your guide is ready. Here is what to look at first.</div><div class="me-snippet">Start with the sections on assistance, closing costs and timing. Those usually shape the next best step.</div></div>
+              <div class="me-msg"><div class="me-subject">What to ask before choosing your path</div><div class="me-snippet">A short follow-up to keep things moving at your pace.</div></div>
+            </div>
+          </div>
+          <div class="path-label">Email Follow-Up</div>
+          <div class="path-caption">Helpful follow-up keeps the path warm while buyers think through affordability, timing and options.</div>
+        </div>
+        <div class="path-node">
+          <div class="path-marker path-marker--handoff">6</div>
+          <!-- CSS mockup placeholder. Replace with:
+               <img src="/assets/img/concepts/partner-handoff-preview.webp" alt="..."> -->
+          <div class="asset-mockup-frame asset-mockup-frame--navy">
+            <div class="mockup-handoff">
+              <div class="mh-title">Ready for a real conversation?</div>
+              <div class="mh-sub">When a buyer is ready for guidance beyond education, the right local lender matters.</div>
+              <div class="mh-tags"><span class="mh-tag">Local Lender Conversation</span></div>
+            </div>
+          </div>
+          <div class="path-label">Partner Review &amp; Routing</div>
+          <div class="path-caption">Not random lead handoff — a local lender conversation when the buyer is ready and the fit makes sense.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-**Flag — hero stat row.** Last round I added a 3-stat row (8% / 31% lower / 11.1%) to the hero per your "no preference, use the approved benchmarks" call. Your new instructions say *"Do not overdo the numbers in the hero"* and your new hero copy (below) doesn't include a stat row at all. Recommend removing that stat row from the hero and letting the Proof section carry all the numbers, consistent with this new direction. Flagging since it directly reverses something from last round.
+<!-- ═══════════════════════════════════════
+     SAMPLE CONCEPTS
+     Messaging source: /partner-opportunity/ "What a Hero HomeReach
+     campaign could look like" — exact headlines reused.
+════════════════════════════════════════ -->
+<section class="section bg-navy">
+  <div class="container" style="position:relative; z-index:2;">
+    <div class="section-intro fade-up">
+      <div class="eyebrow on-navy">Sample Concepts</div>
+      <h2 class="on-navy-text">What a Hero HomeReach campaign could look like</h2>
+      <p class="lede white">Most real estate and lending ads ask for action before the buyer has clarity. Hero HomeReach campaigns start earlier, with the questions buyers are already asking: Can I afford to start? Is there help for my profession? What does VA zero down really cover? Who can explain this without pushing me?</p>
+      <p class="lede white">These sample concepts show how education-first campaigns can create trust before the sales conversation begins. Hero HomeReach owns this trust-first layer; the right partner steps in when the buyer is ready for the next conversation.</p>
+    </div>
+    <div class="concepts-grid fade-up delay-1">
 
-**Partner Fit (`#fit-gate`)** — Move up to position 4 (was second-to-last). Keep the existing fit/not-fit two-column list as-is — you didn't ask to change those bullets, just the section's framing/intro, which is rewritten below.
+      <div class="concept-card">
+        <div class="concept-card__label"><span>Veterans &amp; Military</span><span>Concept Preview</span></div>
+        <div class="concept-card__media">
+          <!-- CSS mockup placeholder. Replace with:
+               <img src="/assets/img/concepts/va-meta-ad.webp" alt="..."> -->
+          <div class="mockup-phone"><div class="mockup-phone-screen">
+            <div class="mp-avatar-row"><div class="mp-avatar"></div><div class="mp-name">Hero HomeReach</div></div>
+            <div class="mp-headline">Zero down is powerful. Build the rest of the plan.</div>
+            <div class="mp-body">VA homebuying options and closing cost strategy for Colorado veterans and military families.</div>
+            <div class="mp-cta">Get the Guide</div>
+          </div></div>
+        </div>
+        <div class="concept-card__footer"><div class="concept-card__headline">Zero down is powerful. Build the rest of the plan.</div></div>
+        <div class="concept-card__caption">Campaign concept for Colorado veterans, military families and service members exploring VA homebuying options and closing cost strategy.</div>
+      </div>
 
-**Final CTA (`#final-cta`)** — Rewrite per your new heading/body/CTA/microcopy.
+      <div class="concept-card">
+        <div class="concept-card__label"><span>Educator</span><span>Concept Preview</span></div>
+        <div class="concept-card__media">
+          <!-- CSS mockup placeholder. Replace with:
+               <img src="/assets/img/concepts/teacher-meta-ad.webp" alt="..."> -->
+          <div class="mockup-phone"><div class="mockup-phone-screen">
+            <div class="mp-avatar-row"><div class="mp-avatar"></div><div class="mp-name">Hero HomeReach</div></div>
+            <div class="mp-headline">Teaching in Colorado? Homebuyer help may be worth exploring.</div>
+            <div class="mp-body">Assistance options, closing costs and practical next steps for Colorado educators.</div>
+            <div class="mp-cta">Get the Guide</div>
+          </div></div>
+        </div>
+        <div class="concept-card__footer"><div class="concept-card__headline">Teaching in Colorado? Homebuyer help may be worth exploring.</div></div>
+        <div class="concept-card__caption">Campaign concept for Colorado educators who want a clearer view of assistance options, closing costs and practical next steps.</div>
+      </div>
 
-**Quicknav pill row** — Needs new anchors/labels to match the reordered sections (draft below).
+      <div class="concept-card">
+        <div class="concept-card__label"><span>Healthcare &amp; First Responder</span><span>Concept Preview</span></div>
+        <div class="concept-card__media">
+          <!-- CSS mockup placeholder. Replace with:
+               <img src="/assets/img/concepts/healthcare-first-responder-meta-ad.webp" alt="..."> -->
+          <div class="mockup-phone"><div class="mockup-phone-screen">
+            <div class="mp-avatar-row"><div class="mp-avatar"></div><div class="mp-name">Hero HomeReach</div></div>
+            <div class="mp-headline">Working in Colorado healthcare or emergency response?</div>
+            <div class="mp-body">A clearer view of assistance options and next steps for healthcare workers and first responders.</div>
+            <div class="mp-cta">Get the Guide</div>
+          </div></div>
+        </div>
+        <div class="concept-card__footer"><div class="concept-card__headline">Working in Colorado healthcare or emergency response? Homebuyer help may be worth exploring.</div></div>
+        <div class="concept-card__caption">Campaign concept for Colorado healthcare workers and first responders who want a clearer view of assistance options and next steps.</div>
+      </div>
 
----
+    </div>
+    <p class="fade-up" style="margin-top:24px; font-size:12.5px; color:rgba(255,255,255,0.5); max-width:700px;">Examples are shown for format and positioning. Campaigns may vary by audience, market, partner category and campaign goals.</p>
+    <p class="emphasis-line fade-up" style="margin-top:24px; max-width:640px; color:#fff;">If your team knows how to guide buyers through complex options, Hero HomeReach helps put you in front of the people who need that guidance most.</p>
+  </div>
+</section>
 
-## 3. Updated Copy
+<!-- ═══════════════════════════════════════
+     PROOF / CREDIBILITY
+     Messaging source: /partner-opportunity/ proof strip — reused
+     benchmark-relative stats only. "Near-100%" stat intentionally
+     dropped to avoid an absolute-sounding claim.
+════════════════════════════════════════ -->
+<section class="section bg-cream" id="support-expands">
+  <div class="container">
+    <div class="section-intro fade-up">
+      <div class="eyebrow">Reach &amp; Impact</div>
+      <h2>Where buyer trust becomes partner opportunity</h2>
+      <p class="emphasis-line" style="font-style: italic; margin: 10px 0 20px;">Education earns the trust. The right local team earns the conversation.</p>
+      <p class="lede">Hero HomeReach is built to help Colorado heroes and first-time buyers understand their options before they choose an agent, lender or path forward. That education builds trust — and when a buyer starts to see a responsible path forward, they need the right local professional to help them turn information into a real plan.</p>
+    </div>
+    <div class="stat-card fade-up delay-1">
+      <div class="eyebrow on-navy" style="margin-bottom:22px;">Benchmark-Backed Campaign Signals</div>
+      <div class="stat-card-grid">
+        <div><div class="stat-num">8%</div><div class="stat-label">Landing page conversion — 60% above the top end of the typical real estate range</div></div>
+        <div><div class="stat-num">31% lower</div><div class="stat-label">Cost per lead than Facebook mortgage benchmarks</div></div>
+        <div><div class="stat-num">57% lower</div><div class="stat-label">Lead cost than Google Search real estate benchmarks</div></div>
+        <div><div class="stat-num">11.1%</div><div class="stat-label">Lead-to-consultation — 39% above the top end of the typical industry range</div></div>
+      </div>
+      <div class="stat-disclaimer">
+        Performance comparisons are measured against third-party industry benchmarks from TheeDigital, LocaliQ, the Mortgage Bankers Association, the National Association of Realtors and LaunchCodex. Results vary by audience, budget, creative, market conditions, follow-up process and partner fit. No lead volume, consultation volume or transaction outcome is guaranteed.
+      </div>
+    </div>
+  </div>
+</section>
 
-### 1. Hero
-- **Eyebrow:** For Colorado Lenders
-- **H1:** Be the local lending partner behind clearer buyer conversations.
-- **Subhead:** Hero HomeReach builds education-first paths around real Colorado assistance questions, then works with selected lender partners when buyers ask for a local lending next step.
-- **Body:**
-  Many Colorado buyers do not start with a loan application. They start with questions.
-  Can I use a VA loan and still need cash to close? How does CHFA actually work? Is MetroDPA a grant or a second mortgage? Can seller concessions help? What does homebuyer education actually require?
-  Hero HomeReach helps buyers understand those questions first. When a buyer is ready for a local conversation, the right lender partner can enter with context instead of a cold pitch.
-- **Primary CTA:** Request Partner Review
-- **Secondary CTA:** See the Campaign System
-- **Trust line:** Hero HomeReach is an education platform, not a lender, brokerage, government agency or lead marketplace.
-- No stat row (see flag above).
+<!-- ═══════════════════════════════════════
+     PARTNER FIT + HONEST ALIGNMENT
+     Messaging source: /partner-opportunity/ "This is not a fit for
+     every team" + "Honest Alignment"
+════════════════════════════════════════ -->
+<section class="section bg-white" id="fit-gate">
+  <div class="container">
+    <div class="section-intro fade-up">
+      <div class="eyebrow">Partner Fit</div>
+      <h2>This is not a fit for every team.</h2>
+      <p class="lede">The education-first model only works when the lending partner can protect the trust created before the introduction.</p>
+    </div>
+    <div class="fit-columns fade-up delay-1">
+      <div class="fit-column">
+        <div class="fit-column-label">This may be a fit if your team</div>
+        <ul class="fit-list fit-list--yes">
+          <li>Understands VA, FHA, CHFA, MetroDPA, seller concessions or closing-cost strategy</li>
+          <li>Works well with agents and values the relationship, not just the referral</li>
+          <li>Values buyer education as part of the sales process, not a distraction from it</li>
+          <li>Follows up patiently with buyers who are still learning</li>
+          <li>Can explain options without pressure</li>
+          <li>Sees education as part of business development</li>
+        </ul>
+      </div>
+      <div class="fit-column fit-column--no">
+        <div class="fit-column-label">This is probably not a fit if your team</div>
+        <ul class="fit-list fit-list--no">
+          <li>Wants instant-transaction leads only</li>
+          <li>Needs a fixed lead volume promised up front</li>
+          <li>Treats every inquiry like a ready-now buyer</li>
+          <li>Does not have a clear follow-up process</li>
+          <li>Is uncomfortable with assistance programs or buyer education</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container--narrow fade-up" style="padding:0; margin-top:56px;">
+      <h2 style="font-size:26px; margin-bottom:16px;">Hero HomeReach is not designed for every possible partner.</h2>
+      <p class="lede" style="margin-bottom:12px;">The buyer experience only works when the local lending team can protect the trust created by the education-first approach.</p>
+      <p class="emphasis-line">That is why partner fit is reviewed by market, audience, category and readiness.</p>
+    </div>
+  </div>
+</section>
 
-### 2. The Difference
-- **Eyebrow:** The Difference
-- **H2:** This is not another lead source.
-- **Body:** Most mortgage marketing starts too late. By the time a buyer fills out a portal form or clicks a generic "get pre-approved" ad, they may already feel overwhelmed, skeptical or chased.
-  Hero HomeReach starts earlier, with the questions Colorado buyers are already asking:
-  - Can I afford to start?
-  - What does VA zero down really cover?
-  - How does CHFA work?
-  - Is MetroDPA repayable?
-  - Can seller concessions change the cash-to-close plan?
-  - Who can explain this without pressure?
-  That earlier moment is where trust can be built.
-- Comparison cards (Portal Leads / Generic Ad Leads / Hero HomeReach Conversations): **unchanged**, still accurate.
-- Closing line: **cut** (was agent-facing).
-- Divider banner after this section — suggested buyer-first replacement (your call whether to keep a banner here at all): *"Buyers ask these questions before they ever talk to a lender. See the path they take next. ↓"*
+<!-- ═══════════════════════════════════════
+     FINAL CTA
+════════════════════════════════════════ -->
+<section id="final-cta">
+  <div class="container">
+    <div class="final-cta-inner fade-up">
+      <div class="eyebrow on-navy" style="justify-content:center;">Selective By Design</div>
+      <h2>Review whether Hero HomeReach <span>fits your market strategy</span></h2>
+      <p>Hero HomeReach is selective about partner fit because the buyer experience matters.</p>
+      <a class="btn btn-gold btn-arrow" href="mailto:trent@rogelstadmedia.com" style="font-size:16px; padding:18px 38px;">Request Partner Review</a>
+    </div>
+  </div>
+</section>
 
-### 3. The Buyer Education Path
-- **Eyebrow:** Buyer Journey (unchanged, or swap to "Education Path" if you want closer wording match)
-- **H2:** The education path before the lending conversation.
-- **Lede:** The system is designed to meet buyers before they are ready for pressure, help them understand their options and create a more informed path toward a local lending conversation.
-- **Steps** (pending your call on 5 vs. 6 nodes, labels below assume option A — 5 nodes):
-  1. Audience-specific education campaign
-  2. Dedicated campaign page
-  3. Plain-English guide or tool
-  4. Education-first follow-up
-  5. Local lending conversation with context
+<!-- ════════════ FOOTER ════════════ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <img src="../herohomereach_logo_web_logo_512px.png" alt="Hero HomeReach shield">
+      <span>Hero HomeReach Partners</span>
+    </div>
+    <p class="footer-disclaimer">
+      Hero HomeReach is an educational resource and is not a lender, brokerage, government agency,
+      financial advisor or legal advisor. Program availability, eligibility, loan terms and assistance
+      options depend on current program rules, lender guidelines and the buyer&rsquo;s full financial
+      profile. Results vary by audience, budget, creative, market conditions, follow-up process and
+      partner fit. No lead volume, consultation volume, transaction outcome or ROI is guaranteed.
+    </p>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Hero HomeReach. All rights reserved.</span>
+      <a href="mailto:trent@rogelstadmedia.com">trent@rogelstadmedia.com</a>
+    </div>
+  </div>
+</footer>
 
-### 4. Partner Fit
-- **Eyebrow:** Partner Fit
-- **H2:** Partner fit matters because buyer trust is the asset.
-- **Body:** Hero HomeReach is not designed for every lender. The platform is built around education-first buyers who may be trying to understand VA loan planning, CHFA, MetroDPA, seller concessions, homebuyer education, credit readiness or local assistance options.
-  That means lender partners need more than product knowledge. They need the patience and clarity to guide buyers without pressure, overpromising or turning an education path into a sales sprint.
-- **Supporting line:** We are looking for partners who can protect the trust that education creates.
-- Fit / not-fit two-column lists: **unchanged.**
+<script>
+var nav = document.getElementById('nav');
+window.addEventListener('scroll', function () {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+var fadeEls = document.querySelectorAll('.fade-up');
+var observer = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+  });
+}, { threshold: 0.1 });
+fadeEls.forEach(function (el) { observer.observe(el); });
+</script>
 
-### 5. What Selected Lender Partners Receive
-- **Eyebrow:** Partnership Value
-- **H2:** What selected lender partners receive.
-- **Benefit blocks** (verbatim, as you gave them):
-  1. **Better-context buyer conversations** — Buyers may arrive with more context about the question that brought them in, such as VA cash-to-close, CHFA, MetroDPA, seller concessions, credit readiness or homebuyer education.
-  2. **Education-first positioning** — Your lending team is connected to a platform that teaches before it asks, which helps the first conversation feel more useful and less transactional.
-  3. **Audience-specific buyer paths** — Veterans, educators, healthcare workers, first responders and first-time buyers do not all need the same explanation. Hero HomeReach builds paths around the audience and the question.
-  4. **A cleaner local next step** — When a buyer asks for help, the partner conversation can begin from what they are already trying to understand.
-  5. **Brand-safe trust alignment** — Hero HomeReach protects its education-first tone, program accuracy and buyer experience. That benefits partners who operate the same way.
-
-### 6. Campaign System (Sample Concepts, reframed)
-- **Eyebrow:** Sample Concepts (unchanged)
-- **H2:** What a Hero HomeReach campaign could look like. (unchanged — still accurate)
-- **New lead-in line, inserted before the existing intro paragraph:** Meta may help buyers find the path, but the value is the education system behind the click.
-- Intro paragraph: shorten the existing one (it currently re-explains the whole page thesis) to something like: *These sample concepts show how education-first campaigns create trust before a lending conversation begins.*
-- 3 concept cards (VA / Educator / Healthcare & First Responder): **unchanged.**
-- Closing line: **cut** (*"If your team knows how to guide buyers through complex options..."* — agent-facing) — replace with nothing, or a short buyer-first line if you want one, e.g. *"Every concept starts with a real Colorado assistance question, not a call-to-action."*
-
-### 7. A Useful Resource for Agent Relationships, Too
-- **Eyebrow:** Secondary Benefit (suggested — you didn't specify one)
-- **H2:** A useful resource for agent relationships, too.
-- **Body:** For lender partners, Hero HomeReach can also become a helpful education asset in agent relationships. Instead of asking agents to send buyers, a lender can point to plain-English resources that help explain VA planning, CHFA, MetroDPA, seller concessions, closing-cost planning and first-time buyer readiness.
-- Visual treatment: small/light section, no stat-card, no pill-row, no 3-card grid — a short text block only, to genuinely read as secondary rather than a shrunk-down version of a primary section.
-
-### 8. Proof / Benchmark Signals
-- Keep existing heading ("Where buyer trust becomes partner opportunity") and stat grid (8% / 31% lower / 57% lower / 11.1%) as-is.
-- **Updated disclaimer wording** (add "or ROI" to match your new copy exactly): *"Performance comparisons are measured against third-party industry benchmarks from TheeDigital, LocaliQ, the Mortgage Bankers Association, the National Association of Realtors and LaunchCodex. Results vary by audience, budget, creative, market conditions, follow-up process and partner fit. No lead volume, consultation volume, transaction outcome or ROI is guaranteed."*
-- Optional new lead-in, matching your "early signals" wording: *"Early campaign signals can help partners understand audience response, but results vary by audience, budget, creative, market conditions, follow-up process and partner fit."*
-
-### 9. Final CTA
-- **Eyebrow:** Selective By Design (unchanged, still fits)
-- **H2:** Request a partner review.
-- **Body:** Hero HomeReach is evaluating lender partners who understand Colorado buyer assistance, communicate clearly and respect the education-first path. This is not an open signup. It is a fit-based review to protect the buyer experience and make sure the local lending step matches the trust Hero HomeReach is building.
-- **CTA:** Request Partner Review
-- **Microcopy:** Partner availability may vary by audience, geography, program focus and buyer need.
-
-### Quicknav pill row (suggested update)
-Current: The Difference / For Agents / How It Works / What You Get / Buyer Path / Proof / Partner Fit
-New (matches reordered sections, drops the cut "How It Works" and demoted agent anchor from top-level nav): **The Difference → Buyer Path → Partner Fit → What You Get → Campaign System → Proof**
-(Agent Relationships section is intentionally left out of the quicknav since it's secondary — no need to promote it in the jump-nav.)
-
----
-
-## 4. Open Decisions Before I Write Code
-
-1. **Buyer-path 5 vs. 6 nodes** — fold "Multiple Buyer Paths" into the campaign-page node (matches your new copy exactly), or keep it as its own 6th... 2nd node?
-2. **Hero stat row** — confirm removal (recommended, per "don't overdo numbers in the hero").
-3. **Sample Concepts vs. a literal second step-diagram for Section 6** — confirm the merge approach above, or tell me you actually want a second, distinct diagram.
-4. **Divider banner after Section 2** — keep with the buyer-first replacement line, or drop entirely?
-5. **Eyebrow for Section 7** — fine with "Secondary Benefit," or you have wording you'd prefer?
-
-Once you sign off on these five, I'll write the actual HTML/CSS.
+</body>
+</html>
