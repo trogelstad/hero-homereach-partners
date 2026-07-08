@@ -611,3 +611,23 @@ p:last-child { margin-bottom: 0; }
     background-position: 78% top;
   }
 }
+
+/* ── Campaign Path: alternating image/text rows (2026-07-08, round 3) ──
+   Reuses .split-grid / .split-grid.reverse (already used elsewhere)
+   for the alternating layout. Image <div> always comes first in the
+   DOM on every row so mobile (which collapses to one column) always
+   shows image-above-copy regardless of which side it's on at desktop
+   width — .split-grid.reverse only swaps the desktop column order. */
+.campaign-row { margin-bottom: 64px; }
+.campaign-row:last-child { margin-bottom: 0; }
+.campaign-row__media img {
+  display: block; width: 100%; height: auto;
+  border-radius: 16px; box-shadow: 0 14px 40px rgba(12,45,94,0.14);
+  border: 1px solid var(--warm-gray);
+}
+.campaign-row__num {
+  font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 10px;
+}
+.campaign-row__content h3 { font-size: 22px; margin-bottom: 12px; color: var(--navy); }
+.campaign-row__content p { font-size: 15px; color: #5c5c5c; line-height: 1.65; }
