@@ -570,8 +570,8 @@ p:last-child { margin-bottom: 0; }
 #page-hero.hero-with-photo {
   background-color: var(--navy);
   background-image: url('../../lenders/lender-page-header-bg-2400x1020.webp');
-  background-size: cover;
-  background-position: 65% center;
+  background-size: 100% auto;
+  background-position: center top;
   background-repeat: no-repeat;
 }
 #page-hero.hero-with-photo::before {
