@@ -345,3 +345,114 @@ p:last-child { margin-bottom: 0; }
 .fade-up.delay-1 { transition-delay: 0.1s; }
 .fade-up.delay-2 { transition-delay: 0.2s; }
 .fade-up.delay-3 { transition-delay: 0.3s; }
+
+/* ═══════════════════════════════════════════════════════
+   v5 (2026-07-07) — ROOT HOMEPAGE ADDITIONS
+   Everything below supports index.html (the partner gateway
+   homepage) without touching any rule /lenders/ depends on.
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Nav link list (shared pattern, used on both pages) ── */
+.nav-links { display: flex; align-items: center; gap: 26px; margin-right: 24px; }
+.nav-links a {
+  font-size: 13.5px; font-weight: 600; color: rgba(255,255,255,0.75);
+  transition: color 0.2s; position: relative; white-space: nowrap;
+}
+.nav-links a:hover { color: #fff; }
+.nav-links a.active { color: var(--bright-gold); }
+.nav-links span.soon {
+  font-size: 13.5px; font-weight: 600; color: rgba(255,255,255,0.32);
+  cursor: default; white-space: nowrap; display: inline-flex; align-items: center; gap: 5px;
+}
+.nav-links span.soon::after {
+  content: 'Soon'; font-size: 8.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(201,151,58,0.55); border: 1px solid rgba(201,151,58,0.3); border-radius: 10px; padding: 1px 6px;
+}
+@media (max-width: 860px) { .nav-links { display: none; } }
+
+/* ── Vertical divider (hero split, print-collateral feel) ── */
+.v-divider { width: 1px; align-self: stretch; background: linear-gradient(180deg, transparent, rgba(201,151,58,0.4) 20%, rgba(201,151,58,0.4) 80%, transparent); }
+
+/* ── Diagonal gold corner accent (echoes the shield's band) ── */
+.corner-accent { position: relative; }
+.corner-accent::before {
+  content: ''; position: absolute; top: 0; right: 0; width: 0; height: 0;
+  border-style: solid; border-width: 0 34px 34px 0; border-color: transparent var(--gold) transparent transparent;
+  z-index: 1;
+}
+.corner-accent--navy::before { border-color: transparent var(--navy) transparent transparent; }
+
+/* ── Homepage hero: split with campaign-system board ────── */
+.home-hero-grid { display: grid; grid-template-columns: 1.05fr auto 0.95fr; gap: 48px; align-items: center; }
+@media (max-width: 980px) { .home-hero-grid { grid-template-columns: 1fr; } .home-hero-grid .v-divider { display: none; } }
+.home-hero-content .hero-mark { margin: 0 0 22px; }
+.home-hero-content { text-align: left; }
+.home-hero-content h1 { color: #fff; margin-bottom: 18px; text-align: left; }
+.home-hero-content h1 span { color: var(--gold); font-style: italic; }
+.home-hero-content .lede { text-align: left; margin: 0 0 14px; }
+.home-hero-content .hero-bold-line { text-align: left; margin: 0 0 30px; }
+.home-hero-content .hero-ctas { justify-content: flex-start; }
+.home-hero-content .hero-trust { text-align: left; }
+
+/* Campaign system board — small mockup cluster with gold connectors
+   and a subtle forest-green path line, echoing the shield's road motif */
+.campaign-board { position: relative; padding: 8px; }
+.campaign-board__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative; z-index: 1; }
+.campaign-board__item { background: #fff; border-radius: 12px; padding: 14px; box-shadow: 0 14px 34px rgba(0,0,0,0.22); display: flex; align-items: center; justify-content: center; min-height: 128px; }
+.campaign-board__item--wide { grid-column: 1 / -1; }
+.campaign-board__path {
+  position: absolute; left: 50%; top: 8%; bottom: 8%; width: 3px; transform: translateX(-50%);
+  background: linear-gradient(180deg, var(--green) 0%, rgba(26,107,74,0.15) 100%);
+  opacity: 0.55; border-radius: 3px; z-index: 0;
+}
+
+/* Reporting-signal mockup (new component) */
+.mockup-report { width: 100%; padding: 6px 2px; }
+.mr-label { font-size: 8px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.mr-row { display: flex; align-items: baseline; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #eee; }
+.mr-row:last-child { border-bottom: none; }
+.mr-metric { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--navy); }
+.mr-desc { font-size: 7px; color: #888; max-width: 100px; text-align: right; line-height: 1.4; }
+
+/* ── Partner path tiles ───────────────────────────────── */
+.tiles-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 44px; }
+.tile {
+  background: #fff; border: 1.5px solid var(--warm-gray); border-radius: 4px; padding: 30px 26px 26px;
+  position: relative; overflow: hidden; transition: var(--transition); display: flex; flex-direction: column;
+}
+.tile::after { content: ''; position: absolute; left: 0; bottom: 0; right: 0; height: 4px; background: var(--warm-gray); }
+.tile--active { border-color: var(--gold); box-shadow: var(--shadow-lift); }
+.tile--active::after { background: var(--gold); }
+.tile--active:hover { transform: translateY(-6px); }
+.tile--soon { opacity: 0.72; }
+.tile-label { font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+.tile--soon .tile-label { color: #999; }
+.tile h3 { font-size: 19px; margin-bottom: 10px; line-height: 1.3; }
+.tile p { font-size: 13.5px; color: #5c5c5c; line-height: 1.6; margin-bottom: 20px; flex: 1; }
+.tile-cta { font-size: 12.5px; font-weight: 700; color: var(--navy); display: inline-flex; align-items: center; gap: 6px; }
+.tile-cta.muted { color: #999; }
+@media (max-width: 980px) { .tiles-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 620px) { .tiles-grid { grid-template-columns: 1fr; } }
+
+/* ── How Trust Moves: path ribbon (road motif from the shield) ── */
+.ribbon-track { position: relative; margin-top: 56px; padding: 0 4px; }
+.ribbon-line {
+  position: absolute; top: 26px; left: 4%; right: 4%; height: 4px; border-radius: 4px; z-index: 0;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold) 78%, var(--green) 100%);
+  opacity: 0.85;
+}
+.ribbon-steps { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
+.ribbon-step { text-align: center; }
+.ribbon-marker {
+  width: 52px; height: 52px; border-radius: 50%; background: var(--navy); border: 3px solid var(--gold);
+  color: #fff; font-family: var(--font-head); font-weight: 900; font-size: 18px;
+  display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; box-shadow: var(--shadow-soft);
+}
+.ribbon-step:last-child .ribbon-marker { border-color: var(--green); }
+.ribbon-step p { font-size: 13px; font-weight: 600; color: var(--navy); line-height: 1.4; padding: 0 4px; }
+@media (max-width: 860px) {
+  .ribbon-steps { grid-template-columns: 1fr; gap: 28px; }
+  .ribbon-line { display: none; }
+  .ribbon-step { display: flex; align-items: center; gap: 16px; text-align: left; }
+  .ribbon-step p { padding: 0; }
+}
