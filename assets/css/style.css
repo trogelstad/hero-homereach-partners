@@ -590,3 +590,24 @@ p:last-child { margin-bottom: 0; }
   );
 }
 #page-hero.hero-with-photo::after { display: none; }
+
+/* ── Lenders hero photo: mobile-only crop fix (2026-07-08) ──
+   Desktop uses background-size:100% auto so the full photo shows
+   uncropped, letterboxed to navy below. On narrow mobile widths that
+   full-image approach compresses the photo into a very thin band
+   (~166px on a 390px phone) — thin enough that the fixed nav bar can
+   overlap most of it, leaving only the lower portion (hands, mug,
+   papers on the desk) visible instead of the couple's faces, which
+   sit in the top ~20-40% of the source image. Fix: on mobile only,
+   scale the image up (220% of viewport width) and crop horizontally
+   toward the people (78% from left) while keeping vertical position
+   pinned to the top of the image, so the visible band is taller
+   (~365px on a 390px phone) and actually shows the conversation
+   instead of just the tabletop. Tune the 78%/220% pair below if the
+   crop still isn't centered right on an actual device. */
+@media (max-width: 640px) {
+  #page-hero.hero-with-photo {
+    background-size: 220% auto;
+    background-position: 78% top;
+  }
+}
