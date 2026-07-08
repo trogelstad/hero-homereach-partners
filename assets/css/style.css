@@ -479,3 +479,30 @@ p:last-child { margin-bottom: 0; }
   .ribbon-step { display: flex; align-items: center; gap: 16px; text-align: left; }
   .ribbon-step p { padding: 0; }
 }
+
+/* ── Education-layer callout (Campaign System section) ───
+   Premium navy callout distinguishing the education system
+   from a simple ad/media-buying pitch. */
+.callout-navy {
+  background: var(--navy); border-radius: var(--radius); padding: 40px 44px;
+  box-shadow: var(--shadow-lift); margin: 28px 0 8px; position: relative; overflow: hidden;
+}
+.callout-navy::before {
+  content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px;
+  border-radius: 50%; background: radial-gradient(circle, rgba(201,151,58,0.14) 0%, transparent 70%); pointer-events: none;
+}
+.callout-navy__eyebrow {
+  display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 800;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--bright-gold); margin-bottom: 12px; position: relative;
+}
+.callout-navy__eyebrow::before { content: ''; display: inline-block; width: 22px; height: 2px; background: var(--bright-gold); }
+.callout-navy h3 { color: #fff; font-size: clamp(20px, 2.4vw, 26px); margin-bottom: 12px; position: relative; }
+.callout-navy p { color: rgba(255,255,255,0.82); font-size: 15.5px; line-height: 1.7; max-width: 720px; position: relative; }
+
+/* ── Value card breakdown (Hero HomeReach builds / buyer experiences / partner receives) ──
+   Used inside .value-card__body to make each campaign-system
+   card read as a step in a pathway, not a generic feature tile. */
+.value-card__breakdown { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--warm-gray); display: flex; flex-direction: column; gap: 12px; }
+.vcb-row { padding-left: 13px; border-left: 2px solid rgba(201,151,58,0.45); }
+.vcb-label { display: block; font-size: 9.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #8B6020; margin-bottom: 3px; }
+.vcb-row p { font-size: 12.5px; color: #5c5c5c; line-height: 1.55; margin: 0; }
