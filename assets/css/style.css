@@ -560,3 +560,30 @@ p:last-child { margin-bottom: 0; }
 
 /* ── Question list on navy background (2026-07-08, lenders hero) ── */
 .question-list.on-navy li { color: rgba(255,255,255,0.88); }
+
+/* ── Lenders hero: real photo background (2026-07-08) ──
+   Scoped to #page-hero.hero-with-photo so the shared #page-hero
+   solid-navy + radial-bloom background (still used by the homepage
+   hero) is untouched. Same fading-gradient technique as the main
+   site's Programs page hero: photo on the right, text-safe navy on
+   the left, no grid/columns needed. */
+#page-hero.hero-with-photo {
+  background-color: var(--navy);
+  background-image: url('../../lenders/lender-page-header-bg-2400x1020.webp');
+  background-size: cover;
+  background-position: 65% center;
+  background-repeat: no-repeat;
+}
+#page-hero.hero-with-photo::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(12,45,94,0.97) 0%,
+    rgba(12,45,94,0.94) 30%,
+    rgba(12,45,94,0.55) 52%,
+    rgba(12,45,94,0.15) 72%,
+    rgba(12,45,94,0.03) 100%
+  );
+}
+#page-hero.hero-with-photo::after { display: none; }
