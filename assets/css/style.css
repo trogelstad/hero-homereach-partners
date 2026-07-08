@@ -394,17 +394,14 @@ p:last-child { margin-bottom: 0; }
 .home-hero-content .hero-ctas { justify-content: flex-start; }
 .home-hero-content .hero-trust { text-align: left; }
 
-/* Campaign system board — small mockup cluster with gold connectors
-   and a subtle forest-green path line, echoing the shield's road motif */
-.campaign-board { position: relative; padding: 8px; }
-.campaign-board__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative; z-index: 1; }
-.campaign-board__item { background: #fff; border-radius: 12px; padding: 14px; box-shadow: 0 14px 34px rgba(0,0,0,0.22); display: flex; align-items: center; justify-content: center; min-height: 128px; }
-.campaign-board__item--wide { grid-column: 1 / -1; }
-.campaign-board__path {
-  position: absolute; left: 50%; top: 8%; bottom: 8%; width: 3px; transform: translateX(-50%);
-  background: linear-gradient(180deg, var(--green) 0%, rgba(26,107,74,0.15) 100%);
-  opacity: 0.55; border-radius: 3px; z-index: 0;
+/* Hero visual — single real campaign image (replaced the CSS mockup
+   cluster). Responsive, natural aspect ratio, no cropping/stretching. */
+.hero-visual { display: flex; align-items: center; justify-content: center; }
+.hero-visual__img {
+  width: 100%; height: auto; max-width: 560px; border-radius: 16px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.34); border: 1px solid rgba(255,255,255,0.08);
 }
+@media (max-width: 980px) { .hero-visual__img { max-width: 440px; margin: 0 auto; } }
 
 /* Reporting-signal mockup (new component) */
 .mockup-report { width: 100%; padding: 6px 2px; }
