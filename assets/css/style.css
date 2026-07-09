@@ -631,3 +631,95 @@ p:last-child { margin-bottom: 0; }
 }
 .campaign-row__content h3 { font-size: 22px; margin-bottom: 12px; color: var(--navy); }
 .campaign-row__content p { font-size: 15px; color: #5c5c5c; line-height: 1.65; }
+
+/* ── Partner Review Modal (2026-07-08, round 5) ──────────────────────
+   Custom-styled, matches site's navy/gold/cream system. No dependency
+   on any external form library — vanilla HTML/CSS/JS. Submission is
+   wired to a placeholder function (see the JS in lenders/index.html)
+   until a real endpoint (HubSpot/MailerLite/Formspree/Netlify Forms)
+   is connected. */
+.btn { cursor: pointer; }
+button.btn { font: inherit; }
+
+.pm-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(12,45,94,0.72);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+}
+.pm-overlay[hidden] { display: none; }
+
+.pm-modal {
+  position: relative;
+  background: var(--cream);
+  width: 100%; max-width: 640px;
+  max-height: 90vh;
+  border-radius: 18px;
+  box-shadow: 0 30px 80px rgba(12,45,94,0.45);
+  border: 1px solid var(--warm-gray);
+  overflow: hidden;
+}
+.pm-modal__scroll {
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 40px 40px 32px;
+}
+
+.pm-close {
+  position: absolute; top: 14px; right: 16px; z-index: 2;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(12,45,94,0.06); border: none;
+  color: var(--navy); font-size: 22px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: var(--transition);
+}
+.pm-close:hover { background: var(--gold); color: #fff; transform: rotate(90deg); }
+
+.pm-modal__header { margin-bottom: 26px; padding-right: 30px; }
+.pm-modal__header h2 { font-size: clamp(24px, 3vw, 30px); margin: 6px 0 12px; }
+.pm-intro { font-size: 15.5px; color: #555; line-height: 1.6; max-width: 520px; }
+
+.pm-form { display: flex; flex-direction: column; gap: 18px; }
+.pm-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.pm-field { display: flex; flex-direction: column; gap: 6px; }
+
+.pm-label { font-family: var(--font-body); font-weight: 600; font-size: 13.5px; color: var(--navy); }
+.pm-req { color: var(--gold); }
+.pm-optional { font-weight: 400; color: #888; font-size: 12.5px; }
+
+.pm-input {
+  font-family: var(--font-body); font-size: 15px; color: var(--navy);
+  background: #fff; border: 1.5px solid var(--warm-gray); border-radius: 10px;
+  padding: 12px 14px; transition: var(--transition); width: 100%;
+}
+.pm-input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,151,58,0.15); }
+.pm-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath fill='%230C2D5E' d='M1 1l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+.pm-textarea { resize: vertical; min-height: 84px; font-family: var(--font-body); }
+
+.pm-checkbox-group { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 4px; }
+.pm-checkbox-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 14px; color: #444; cursor: pointer; font-weight: 400;
+}
+.pm-checkbox-item input { width: 16px; height: 16px; accent-color: var(--gold); cursor: pointer; }
+
+.pm-submit { width: 100%; justify-content: center; margin-top: 6px; }
+.pm-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+.pm-microcopy { font-size: 12.5px; color: #888; text-align: center; margin-top: 12px; line-height: 1.5; }
+
+.pm-success { text-align: center; padding: 30px 10px 10px; }
+.pm-success__icon {
+  width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 18px;
+  background: var(--gold); color: #fff; font-size: 26px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.pm-success__text { font-size: 16px; color: var(--navy); line-height: 1.6; max-width: 440px; margin: 0 auto; }
+.pm-success:focus { outline: none; }
+
+@media (max-width: 640px) {
+  .pm-modal__scroll { padding: 32px 22px 26px; }
+  .pm-field-row { grid-template-columns: 1fr; gap: 18px; }
+  .pm-overlay { padding: 12px; align-items: flex-end; }
+  .pm-modal { max-height: 92vh; border-radius: 18px 18px 0 0; }
+  .pm-modal__scroll { max-height: 92vh; }
+}
