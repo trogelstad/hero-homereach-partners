@@ -26,7 +26,7 @@
       <a href="/#campaign-system">Campaign System</a>
       <a href="/#how-trust-moves">Trust Model</a>
     </div>
-    <div class="nav-cta"><a href="mailto:trent@rogelstadmedia.com" class="btn btn-gold btn-sm btn-arrow">Request Partner Review</a></div>
+    <div class="nav-cta"><button type="button" class="btn btn-gold btn-sm btn-arrow" data-open-partner-modal>Request Partner Review</button></div>
     <div class="nav-hamburger"><span></span><span></span><span></span></div>
   </div>
 </nav>
@@ -52,8 +52,8 @@
       </ul>
       <p class="lede white">Hero HomeReach campaigns meet buyers at that education stage first. When a buyer requests help through Hero HomeReach, the lender partner follows up as the local education-aligned contact, starting with the buyer&rsquo;s goals and questions before moving into financing options or real estate next steps.</p>
       <div class="hero-ctas">
-        <a class="btn btn-gold btn-arrow" href="mailto:trent@rogelstadmedia.com">Request Partner Review</a>
-        <a class="btn btn-outline" href="#campaign-concepts">See the Campaign System</a>
+        <button type="button" class="btn btn-gold btn-arrow" data-open-partner-modal>Request Partner Review</button>
+        <a class="btn btn-outline" href="#campaign-path">See the Campaign System</a>
       </div>
       <div class="hero-trust">Hero HomeReach is an education platform, not a lender, brokerage, government agency or lead marketplace.</div>
     </div>
@@ -303,7 +303,7 @@
       <div class="eyebrow on-navy" style="justify-content:center;">Selective By Design</div>
       <h2>Request a partner review.</h2>
       <p>Hero HomeReach is evaluating lender partners who understand Colorado buyer assistance, communicate clearly and respect the education-first path. This is not an open signup. It is a fit-based review to protect the buyer experience and make sure the local lending step matches the trust Hero HomeReach is building.</p>
-      <a class="btn btn-gold btn-arrow" href="mailto:trent@rogelstadmedia.com" style="font-size:16px; padding:18px 38px;">Request Partner Review</a>
+      <button type="button" class="btn btn-gold btn-arrow" style="font-size:16px; padding:18px 38px;" data-open-partner-modal>Request Partner Review</button>
       <p style="margin-top:18px; font-size:12.5px; color:rgba(255,255,255,0.5);">Partner availability may vary by audience, geography, program focus and buyer need.</p>
     </div>
   </div>
@@ -328,6 +328,107 @@
   </div>
 </footer>
 
+<!-- ═══════════════════════════════════════
+     PARTNER REVIEW MODAL
+     Added 2026-07-08 (round 5) — replaces mailto CTAs (nav, hero,
+     final-cta) with a branded modal form. Form submission is NOT
+     yet connected to a real backend — see the clearly marked
+     PLACEHOLDER block in the JS below. Do not treat this as a live
+     lead-capture form until that block is wired to a real endpoint.
+════════════════════════════════════════ -->
+<div class="pm-overlay" id="pm-overlay" hidden>
+  <div class="pm-modal" role="dialog" aria-modal="true" aria-labelledby="pm-title" id="pm-modal">
+    <button type="button" class="pm-close" id="pm-close" aria-label="Close partner review form">&times;</button>
+
+    <div class="pm-modal__scroll">
+      <div class="pm-modal__header">
+        <div class="eyebrow">Selective By Design</div>
+        <h2 id="pm-title">Request a Partner Review</h2>
+        <p class="pm-intro">Hero HomeReach is evaluating selected lender partners for education-first buyer campaigns in Colorado. Share a few details and we&rsquo;ll review whether there may be a fit.</p>
+      </div>
+
+      <form id="pm-form" class="pm-form" novalidate>
+        <div class="pm-field">
+          <label class="pm-label" for="pm-full_name">Full Name <span class="pm-req">*</span></label>
+          <input class="pm-input" type="text" id="pm-full_name" name="full_name" required autocomplete="name">
+        </div>
+
+        <div class="pm-field-row">
+          <div class="pm-field">
+            <label class="pm-label" for="pm-email">Email Address <span class="pm-req">*</span></label>
+            <input class="pm-input" type="email" id="pm-email" name="email" required autocomplete="email">
+          </div>
+          <div class="pm-field">
+            <label class="pm-label" for="pm-phone">Phone Number <span class="pm-req">*</span></label>
+            <input class="pm-input" type="tel" id="pm-phone" name="phone" required autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="pm-field-row">
+          <div class="pm-field">
+            <label class="pm-label" for="pm-company">Company / Lending Team <span class="pm-req">*</span></label>
+            <input class="pm-input" type="text" id="pm-company" name="company" required autocomplete="organization">
+          </div>
+          <div class="pm-field">
+            <label class="pm-label" for="pm-market">Primary Colorado Market <span class="pm-req">*</span></label>
+            <input class="pm-input" type="text" id="pm-market" name="market" required placeholder="Denver Metro, Colorado Springs, Northern Colorado, statewide">
+          </div>
+        </div>
+
+        <div class="pm-field">
+          <label class="pm-label" for="pm-role">Your Role <span class="pm-req">*</span></label>
+          <select class="pm-input pm-select" id="pm-role" name="role" required>
+            <option value="" disabled selected>Select one&hellip;</option>
+            <option value="Loan officer">Loan officer</option>
+            <option value="Producing branch manager">Producing branch manager</option>
+            <option value="Mortgage broker">Mortgage broker</option>
+            <option value="Credit union / bank lender">Credit union / bank lender</option>
+            <option value="Lending team leader">Lending team leader</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="pm-field">
+          <div class="pm-label">Hero audiences you are most interested in <span class="pm-optional">(optional)</span></div>
+          <div class="pm-checkbox-group">
+            <label class="pm-checkbox-item"><input type="checkbox" name="audiences" value="Veterans / military families"> Veterans / military families</label>
+            <label class="pm-checkbox-item"><input type="checkbox" name="audiences" value="Educators"> Educators</label>
+            <label class="pm-checkbox-item"><input type="checkbox" name="audiences" value="First responders"> First responders</label>
+            <label class="pm-checkbox-item"><input type="checkbox" name="audiences" value="Healthcare workers"> Healthcare workers</label>
+            <label class="pm-checkbox-item"><input type="checkbox" name="audiences" value="First-time buyers"> First-time buyers</label>
+            <label class="pm-checkbox-item"><input type="checkbox" name="audiences" value="Public servants"> Public servants</label>
+            <label class="pm-checkbox-item"><input type="checkbox" name="audiences" value="Not sure yet"> Not sure yet</label>
+          </div>
+        </div>
+
+        <div class="pm-field">
+          <label class="pm-label" for="pm-assistance_familiarity">Familiarity with Colorado assistance programs <span class="pm-optional">(optional)</span></label>
+          <select class="pm-input pm-select" id="pm-assistance_familiarity" name="assistance_familiarity">
+            <option value="" selected>Select one&hellip;</option>
+            <option value="Very familiar">Very familiar</option>
+            <option value="Somewhat familiar">Somewhat familiar</option>
+            <option value="Learning, but interested">Learning, but interested</option>
+            <option value="Not yet">Not yet</option>
+          </select>
+        </div>
+
+        <div class="pm-field">
+          <label class="pm-label" for="pm-partnership_interest">What makes this partnership interesting to you? <span class="pm-optional">(optional)</span></label>
+          <textarea class="pm-input pm-textarea" id="pm-partnership_interest" name="partnership_interest" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-gold btn-arrow pm-submit" id="pm-submit">Submit Partner Review Request</button>
+        <p class="pm-microcopy">This is a fit-based review, not an open signup. Hero HomeReach is an education platform, not a lender, brokerage or lead marketplace.</p>
+      </form>
+
+      <div class="pm-success" id="pm-success" hidden>
+        <div class="pm-success__icon">&#10003;</div>
+        <p class="pm-success__text">Thanks. Your partner review request has been received. Hero HomeReach will review your information and follow up if there appears to be a potential fit.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 var nav = document.getElementById('nav');
 window.addEventListener('scroll', function () {
@@ -340,6 +441,115 @@ var observer = new IntersectionObserver(function (entries) {
   });
 }, { threshold: 0.1 });
 fadeEls.forEach(function (el) { observer.observe(el); });
+</script>
+
+<!-- ═══════════════════════════════════════
+     PARTNER REVIEW MODAL — behavior
+     Added 2026-07-08 (round 5). Vanilla JS, no dependencies.
+════════════════════════════════════════ -->
+<script>
+(function () {
+  var overlay = document.getElementById('pm-overlay');
+  var modal = document.getElementById('pm-modal');
+  var closeBtn = document.getElementById('pm-close');
+  var form = document.getElementById('pm-form');
+  var successEl = document.getElementById('pm-success');
+  var submitBtn = document.getElementById('pm-submit');
+  var openTriggers = document.querySelectorAll('[data-open-partner-modal]');
+  var lastFocusedEl = null;
+
+  function openModal() {
+    lastFocusedEl = document.activeElement;
+    overlay.hidden = false;
+    document.body.style.overflow = 'hidden';
+    // Reset to form view every time the modal is (re)opened.
+    form.hidden = false;
+    successEl.hidden = true;
+    var firstField = document.getElementById('pm-full_name');
+    if (firstField) { firstField.focus(); }
+    document.addEventListener('keydown', onKeydown);
+  }
+
+  function closeModal() {
+    overlay.hidden = true;
+    document.body.style.overflow = '';
+    document.removeEventListener('keydown', onKeydown);
+    if (lastFocusedEl && typeof lastFocusedEl.focus === 'function') {
+      lastFocusedEl.focus();
+    }
+  }
+
+  function onKeydown(e) {
+    if (e.key === 'Escape') { closeModal(); }
+  }
+
+  openTriggers.forEach(function (btn) {
+    btn.addEventListener('click', openModal);
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+
+  // Close when clicking the overlay itself, not the modal panel.
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) { closeModal(); }
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var audiences = Array.prototype.slice
+      .call(form.querySelectorAll('input[name="audiences"]:checked'))
+      .map(function (el) { return el.value; });
+
+    var data = {
+      full_name: form.full_name.value.trim(),
+      email: form.email.value.trim(),
+      phone: form.phone.value.trim(),
+      company: form.company.value.trim(),
+      market: form.market.value.trim(),
+      role: form.role.value,
+      audiences: audiences,
+      assistance_familiarity: form.assistance_familiarity.value,
+      partnership_interest: form.partnership_interest.value.trim()
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting\u2026';
+
+    submitPartnerReviewRequest(data)
+      .then(function () {
+        form.hidden = true;
+        successEl.hidden = false;
+        successEl.focus && successEl.setAttribute('tabindex', '-1');
+        successEl.focus();
+      })
+      .catch(function (err) {
+        console.error('Partner review submission failed:', err);
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Partner Review Request';
+        alert('Something went wrong submitting the form. Please try again or email trent@rogelstadmedia.com directly.');
+      });
+  });
+
+  /* ═══════════════════════════════════════════════════════════════
+     Submits to /api/partner-review (Vercel serverless function,
+     see api/partner-review.js in the repo root) which upserts the
+     contact into MailerLite and adds them to the "Hero HomeReach
+     Partner Reviews" group. Requires the MAILERLITE_API_KEY
+     environment variable to be set in Vercel — see that file for
+     full setup notes. Set up a MailerLite Automation (trigger:
+     subscriber joins that group) to get emailed on each submission.
+     ═══════════════════════════════════════════════════════════════ */
+  function submitPartnerReviewRequest(data) {
+    return fetch('/api/partner-review', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function (res) {
+      if (!res.ok) { throw new Error('Partner review submission failed'); }
+    });
+  }
+})();
 </script>
 
 </body>
