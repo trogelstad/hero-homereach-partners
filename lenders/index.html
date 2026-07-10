@@ -20,14 +20,15 @@
       <img src="../herohomereach_logo_web_logo_512px.png" alt="Hero HomeReach shield">
       <div class="nav-wordmark">Hero HomeReach <span>Partners</span></div>
     </a>
-    <div class="nav-links">
+    <div class="nav-links" id="navLinks">
       <a href="/lenders/" class="active">Lenders</a>
       <span class="soon">Realtors</span>
       <a href="/#campaign-system">Campaign System</a>
       <a href="/#how-trust-moves">Trust Model</a>
+      <button type="button" class="btn btn-gold btn-arrow nav-mobile-cta" data-open-partner-modal>Explore a Lender Partner Path</button>
     </div>
     <div class="nav-cta"><button type="button" class="btn btn-gold btn-sm btn-arrow" data-open-partner-modal>Explore a Lender Partner Path</button></div>
-    <div class="nav-hamburger"><span></span><span></span><span></span></div>
+    <button type="button" class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <!-- ═══════════════════════════════════════
@@ -324,7 +325,8 @@
     </p>
     <div class="footer-bottom">
       <span>&copy; 2026 Hero HomeReach. All rights reserved.</span>
-      <a href="mailto:trent@rogelstadmedia.com">trent@rogelstadmedia.com</a>
+      <a href="https://www.herohomereach.com/programs.html" style="color:rgba(255,255,255,0.7); font-size:12.5px; font-weight:600;">Colorado Homebuyer Programs</a>
+      <a href="mailto:info@herohomereach.com">info@herohomereach.com</a>
     </div>
   </div>
 </footer>
@@ -442,6 +444,31 @@ var observer = new IntersectionObserver(function (entries) {
   });
 }, { threshold: 0.1 });
 fadeEls.forEach(function (el) { observer.observe(el); });
+
+var navHamburger = document.getElementById('navHamburger');
+var navLinksPanel = document.getElementById('navLinks');
+function closeMobileNav() {
+  navHamburger.classList.remove('open');
+  navLinksPanel.classList.remove('open');
+  navHamburger.setAttribute('aria-expanded', 'false');
+}
+function toggleMobileNav() {
+  var isOpen = navLinksPanel.classList.toggle('open');
+  navHamburger.classList.toggle('open', isOpen);
+  navHamburger.setAttribute('aria-expanded', String(isOpen));
+}
+navHamburger.addEventListener('click', toggleMobileNav);
+navLinksPanel.querySelectorAll('a, button').forEach(function (el) {
+  el.addEventListener('click', closeMobileNav);
+});
+document.addEventListener('click', function (e) {
+  if (navLinksPanel.classList.contains('open') && !navLinksPanel.contains(e.target) && e.target !== navHamburger && !navHamburger.contains(e.target)) {
+    closeMobileNav();
+  }
+});
+window.addEventListener('resize', function () {
+  if (window.innerWidth > 860) { closeMobileNav(); }
+});
 </script>
 
 <!-- ═══════════════════════════════════════
@@ -528,7 +555,7 @@ fadeEls.forEach(function (el) { observer.observe(el); });
         console.error('Partner review submission failed:', err);
         submitBtn.disabled = false;
         submitBtn.textContent = 'Submit Partner Review Request';
-        alert('Something went wrong submitting the form. Please try again or email trent@rogelstadmedia.com directly.');
+        alert('Something went wrong submitting the form. Please try again or email info@herohomereach.com directly.');
       });
   });
 
