@@ -20,14 +20,15 @@
       <img src="herohomereach_logo_web_logo_512px.png" alt="Hero HomeReach shield">
       <div class="nav-wordmark">Hero HomeReach <span>Partners</span></div>
     </a>
-    <div class="nav-links">
+    <div class="nav-links" id="navLinks">
       <a href="/lenders/">Lenders</a>
       <span class="soon">Realtors</span>
       <a href="#campaign-system">Campaign System</a>
       <a href="#how-trust-moves">Trust Model</a>
+      <a href="mailto:info@herohomereach.com" class="btn btn-gold btn-arrow nav-mobile-cta">Request Partner Review</a>
     </div>
-    <div class="nav-cta"><a href="mailto:trent@rogelstadmedia.com" class="btn btn-gold btn-sm btn-arrow">Request Partner Review</a></div>
-    <div class="nav-hamburger"><span></span><span></span><span></span></div>
+    <div class="nav-cta"><a href="mailto:info@herohomereach.com" class="btn btn-gold btn-sm btn-arrow">Request Partner Review</a></div>
+    <button type="button" class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -53,7 +54,7 @@
         </p>
         <p class="hero-bold-line">Education earns the trust. The right local team earns the conversation.</p>
         <div class="hero-ctas">
-          <a class="btn btn-gold btn-arrow" href="mailto:trent@rogelstadmedia.com">Request Partner Review</a>
+          <a class="btn btn-gold btn-arrow" href="mailto:info@herohomereach.com">Request Partner Review</a>
           <a class="btn btn-outline" href="/lenders/">Explore the Lender Page</a>
         </div>
         <div class="hero-trust">Hero HomeReach is an educational resource, not a lender, brokerage or government agency.</div>
@@ -399,7 +400,7 @@ END: What Partners Can Use, commented out 2026-07-08
       <div class="eyebrow on-navy" style="justify-content:center;">Partner Review</div>
       <h2>Explore whether Hero HomeReach <span>fits your market strategy</span></h2>
       <p>Hero HomeReach is building a partner platform for teams that understand the long game: better education, better context, better conversations. If your team wants to use localized buyer education as a smarter way to support agents and serve Colorado buyers, start with a partner review.</p>
-      <a class="btn btn-gold btn-arrow" href="mailto:trent@rogelstadmedia.com" style="font-size:16px; padding:18px 38px;">Request Partner Review</a>
+      <a class="btn btn-gold btn-arrow" href="mailto:info@herohomereach.com" style="font-size:16px; padding:18px 38px;">Request Partner Review</a>
       <p style="margin-top:26px; font-size:12.5px; color:rgba(255,255,255,0.5); max-width:560px; margin-left:auto; margin-right:auto;">No lead volume, consultation volume, transaction outcome or ROI is promised. Partner fit, market conditions, budget, creative, follow-up and buyer readiness all matter.</p>
     </div>
   </div>
@@ -424,12 +425,12 @@ END: What Partners Can Use, commented out 2026-07-08
       <span style="color:rgba(255,255,255,0.3); font-size:12.5px;">Realtors (Coming Soon)</span>
       <a href="#campaign-system" style="color:rgba(255,255,255,0.7); font-size:12.5px; font-weight:600;">Campaign System</a>
       <a href="#how-trust-moves" style="color:rgba(255,255,255,0.7); font-size:12.5px; font-weight:600;">Trust Model</a>
-      <a href="mailto:trent@rogelstadmedia.com" style="color:rgba(255,255,255,0.7); font-size:12.5px; font-weight:600;">Partner Review</a>
+      <a href="mailto:info@herohomereach.com" style="color:rgba(255,255,255,0.7); font-size:12.5px; font-weight:600;">Partner Review</a>
       <a href="https://www.herohomereach.com" style="color:rgba(255,255,255,0.7); font-size:12.5px; font-weight:600;">Main Hero HomeReach Site</a>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Hero HomeReach. All rights reserved.</span>
-      <a href="mailto:trent@rogelstadmedia.com">trent@rogelstadmedia.com</a>
+      <a href="mailto:info@herohomereach.com">info@herohomereach.com</a>
     </div>
   </div>
 </footer>
@@ -446,6 +447,31 @@ var observer = new IntersectionObserver(function (entries) {
   });
 }, { threshold: 0.1 });
 fadeEls.forEach(function (el) { observer.observe(el); });
+
+var navHamburger = document.getElementById('navHamburger');
+var navLinksPanel = document.getElementById('navLinks');
+function closeMobileNav() {
+  navHamburger.classList.remove('open');
+  navLinksPanel.classList.remove('open');
+  navHamburger.setAttribute('aria-expanded', 'false');
+}
+function toggleMobileNav() {
+  var isOpen = navLinksPanel.classList.toggle('open');
+  navHamburger.classList.toggle('open', isOpen);
+  navHamburger.setAttribute('aria-expanded', String(isOpen));
+}
+navHamburger.addEventListener('click', toggleMobileNav);
+navLinksPanel.querySelectorAll('a, button').forEach(function (el) {
+  el.addEventListener('click', closeMobileNav);
+});
+document.addEventListener('click', function (e) {
+  if (navLinksPanel.classList.contains('open') && !navLinksPanel.contains(e.target) && e.target !== navHamburger && !navHamburger.contains(e.target)) {
+    closeMobileNav();
+  }
+});
+window.addEventListener('resize', function () {
+  if (window.innerWidth > 860) { closeMobileNav(); }
+});
 </script>
 
 </body>
