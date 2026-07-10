@@ -692,6 +692,34 @@ p:last-child { margin-bottom: 0; }
   }
 }
 
+/* ── Agents hero: real photo background (2026-07-10) ──
+   Same technique as the lenders hero above, scoped to the
+   .hero-with-photo--agents modifier so it doesn't override the
+   lenders page's own image. Source file lives in the repo root
+   (agents-page-header-bg.webp, 2400x1020) alongside the other
+   shared images, not inside /agents/, so the path below climbs
+   two levels from assets/css/ to the repo root. */
+#page-hero.hero-with-photo--agents {
+  background-image: url('../../agents-page-header-bg.webp');
+}
+/* ── Agents hero photo: mobile-only crop fix (2026-07-10) ──
+   Same thin-band problem as the lenders photo: at the default
+   100% auto size, a 2400x1020 image compresses to roughly a
+   166px band on a 390px phone, and the fixed nav can eat most
+   of that. This image's subject (buyer couple, agent and the
+   screen they're reviewing) sits center-right in the frame, with
+   a text-safe cream fade on the left third. On mobile, scale up
+   and shift right to keep the people and the screen in view
+   instead of the empty fade or the far-right window/mountain
+   view. Tune the 80%/210% pair below if the crop isn't centered
+   right on an actual device. */
+@media (max-width: 640px) {
+  #page-hero.hero-with-photo--agents {
+    background-size: 210% auto;
+    background-position: 80% top;
+  }
+}
+
 /* ── Campaign Path: alternating image/text rows (2026-07-08, round 3) ──
    Reuses .split-grid / .split-grid.reverse (already used elsewhere)
    for the alternating layout. Image <div> always comes first in the
