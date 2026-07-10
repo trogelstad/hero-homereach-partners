@@ -523,6 +523,7 @@ p:last-child { margin-bottom: 0; }
   .ribbon-line { display: none; }
   .ribbon-step { display: flex; align-items: center; gap: 16px; text-align: left; }
   .ribbon-step p { padding: 0; }
+  .ribbon-marker { margin: 0; flex-shrink: 0; }
 }
 
 /* ── Education-layer callout (Campaign System section) ───
