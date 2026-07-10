@@ -393,9 +393,9 @@ END: What Partners Can Use, commented out 2026-07-08
 <section id="final-cta">
   <div class="container">
     <div class="final-cta-inner fade-up">
-      <div class="eyebrow on-navy" style="justify-content:center;">Partner Review</div>
+      <div class="eyebrow on-navy" style="justify-content:center;">Selective Partner Fit</div>
       <h2>Explore whether Hero HomeReach <span>fits your market strategy</span></h2>
-      <p>Hero HomeReach is building a partner platform for teams that understand the long game: better education, better context, better conversations. If your team wants to use localized buyer education as a smarter way to grow their business and serve Colorado buyers, start with a partner review.</p>
+      <p>Hero HomeReach is building a partner platform for teams that understand the long game: better education, better context, better conversations. If your team wants to use localized buyer education as a smarter way to grow their business and serve Colorado buyers, start by exploring partner fit.</p>
       <button type="button" class="btn btn-gold btn-arrow" data-open-partner-modal style="font-size:16px; padding:18px 38px;">Explore a Partner Path</button>
       <p style="margin-top:26px; font-size:12.5px; color:rgba(255,255,255,0.5); max-width:560px; margin-left:auto; margin-right:auto;">No lead volume, consultation volume, transaction outcome or ROI is promised. Partner fit, market conditions, budget, creative, follow-up and buyer readiness all matter.</p>
     </div>
@@ -438,7 +438,7 @@ END: What Partners Can Use, commented out 2026-07-08
 ════════════════════════════════════════ -->
 <div class="pm-overlay" id="pm-overlay" hidden>
   <div class="pm-modal" role="dialog" aria-modal="true" aria-labelledby="pm-title" id="pm-modal">
-    <button type="button" class="pm-close" id="pm-close" aria-label="Close partner review form">&times;</button>
+    <button type="button" class="pm-close" id="pm-close" aria-label="Close partner fit form">&times;</button>
 
     <div class="pm-modal__scroll">
       <div class="pm-modal__header">
@@ -519,13 +519,13 @@ END: What Partners Can Use, commented out 2026-07-08
           <textarea class="pm-input pm-textarea" id="pm-partnership_interest" name="partnership_interest" rows="3"></textarea>
         </div>
 
-        <button type="submit" class="btn btn-gold btn-arrow pm-submit" id="pm-submit">Submit Partner Review Request</button>
+        <button type="submit" class="btn btn-gold btn-arrow pm-submit" id="pm-submit">Submit Partner Fit Request</button>
         <p class="pm-microcopy">This is a fit-based review, not an open signup. Hero HomeReach is an education platform, not a lender, brokerage or lead marketplace.</p>
       </form>
 
       <div class="pm-success" id="pm-success" hidden>
         <div class="pm-success__icon">&#10003;</div>
-        <p class="pm-success__text">Thanks. Your partner review request has been received. Hero HomeReach will review your information and follow up if there appears to be a potential fit.</p>
+        <p class="pm-success__text">Thanks. Your partner fit request has been received. Hero HomeReach will review your information and follow up if there appears to be a potential fit.</p>
       </div>
     </div>
   </div>
@@ -653,7 +653,7 @@ window.addEventListener('resize', function () {
       .catch(function (err) {
         console.error('Partner review submission failed:', err);
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Submit Partner Review Request';
+        submitBtn.textContent = 'Submit Partner Fit Request';
         alert('Something went wrong submitting the form. Please try again or email info@herohomereach.com directly.');
       });
   });
