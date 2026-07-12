@@ -584,6 +584,7 @@ window.addEventListener('resize', function () {
   var submitBtn = document.getElementById('pm-submit');
   var openTriggers = document.querySelectorAll('[data-open-partner-modal]');
   var lastFocusedEl = null;
+  var defaultSubmitText = submitBtn.textContent;
 
   function openModal() {
     lastFocusedEl = document.activeElement;
@@ -592,6 +593,8 @@ window.addEventListener('resize', function () {
     // Reset to form view every time the modal is (re)opened.
     form.hidden = false;
     successEl.hidden = true;
+    submitBtn.disabled = false;
+    submitBtn.textContent = defaultSubmitText;
     var firstField = document.getElementById('pm-full_name');
     if (firstField) { firstField.focus(); }
     document.addEventListener('keydown', onKeydown);
@@ -624,6 +627,11 @@ window.addEventListener('resize', function () {
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
     var audiences = Array.prototype.slice
       .call(form.querySelectorAll('input[name="audiences"]:checked'))
       .map(function (el) { return el.value; });
@@ -645,6 +653,7 @@ window.addEventListener('resize', function () {
 
     submitPartnerReviewRequest(data)
       .then(function () {
+        submitBtn.textContent = 'Submitted!';
         form.hidden = true;
         successEl.hidden = false;
         successEl.focus && successEl.setAttribute('tabindex', '-1');
@@ -653,7 +662,7 @@ window.addEventListener('resize', function () {
       .catch(function (err) {
         console.error('Partner review submission failed:', err);
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Submit Partner Fit Request';
+        submitBtn.textContent = defaultSubmitText;
         alert('Something went wrong submitting the form. Please try again or email info@herohomereach.com directly.');
       });
   });
