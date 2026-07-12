@@ -244,6 +244,25 @@ p:last-child { margin-bottom: 0; }
 @media (max-width: 960px) { .value-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .value-grid { grid-template-columns: 1fr; } }
 
+/* ── Value grid: 6th "pop" CTA card (2026-07-10) ──
+   Balances the 5-card grid to a clean 3x2 layout and gives the
+   section its own mid-page off-ramp. Reuses .value-card so it
+   inherits the same border-radius/shadow/hover lift, but swaps
+   to a solid navy fill so it visually pops against the five
+   white info cards next to it instead of reading as a sixth
+   near-duplicate. */
+.value-card--cta { background: var(--navy); border-color: var(--navy); }
+.value-card--cta .value-card__label--cta {
+  background: rgba(255,255,255,0.08); color: var(--bright-gold);
+  border-bottom-color: rgba(255,255,255,0.14);
+}
+.value-card--cta .value-card__body--cta {
+  flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 10px;
+}
+.value-card--cta .value-card__body--cta h3 { color: #fff; margin-bottom: 0; }
+.value-card--cta .value-card__body--cta p { color: rgba(255,255,255,0.75); margin-bottom: 6px; }
+.value-card--cta .value-card__body--cta .btn { white-space: normal; text-align: center; justify-content: center; align-self: flex-start; }
+
 /* ═══════════════════════════════════════════════════════
    CAMPAIGN MOCKUP COMPONENTS (unchanged from prior build —
    pure CSS/HTML, Hero HomeReach-owned, no partner branding)
