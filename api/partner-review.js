@@ -37,11 +37,11 @@ module.exports = async function handler(req, res) {
 
   const body = req.body || {};
   const {
-    full_name, email, phone, company, market, role,
+    full_name, email, phone, company, role,
     audiences, assistance_familiarity, partnership_interest
   } = body;
 
-  if (!full_name || !email || !phone || !company || !market || !role) {
+  if (!full_name || !email || !phone || !company || !role) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
@@ -95,7 +95,6 @@ module.exports = async function handler(req, res) {
           name: full_name,
           phone: phone,
           company: company,
-          market: market,
           role: role,
           audiences: Array.isArray(audiences) ? audiences.join(', ') : (audiences || ''),
           familiarity: assistance_familiarity || '',
