@@ -383,11 +383,13 @@
             <label class="pm-label" for="pm-company">Company / Lending Team <span class="pm-req">*</span></label>
             <input class="pm-input" type="text" id="pm-company" name="company" required autocomplete="organization">
           </div>
-          <div class="pm-field">
+          <div class="pm-field pm-field--market">
             <label class="pm-label" for="pm-market">Primary Colorado Market <span class="pm-req">*</span></label>
-            <input class="pm-input" type="text" id="pm-market" name="market" required placeholder="Denver Metro, Colorado Springs, Northern Colorado, statewide">
+            <input class="pm-input" type="text" id="pm-market" name="market" required autocomplete="off" placeholder="Start typing a Colorado city or market&hellip;">
+            <div class="market-panel" id="pm-market-panel"></div>
           </div>
         </div>
+        <p class="pm-market-note"><strong>Many partners cover more than one market.</strong> This is just a starting point, final markets and multi-market partner opportunities are confirmed together during onboarding.</p>
 
         <div class="pm-field">
           <label class="pm-label" for="pm-role">Your Role <span class="pm-req">*</span></label>
@@ -498,6 +500,136 @@ window.addEventListener('resize', function () {
   var lastFocusedEl = null;
   var defaultSubmitText = submitBtn.textContent;
 
+  // ── Market picker: searchable, grouped Colorado market field ──
+  // Added 2026-07-12. Same data/logic validated in the standalone
+  // prototype. The field stays a real text input (so a market not
+  // in the list can still be typed and submitted); the panel just
+  // suggests known markets and flags a small set of larger markets
+  // as currently partnered. This is a TEST, easy to remove if the
+  // scarcity concept gets scrapped, see MARKET_AREAS/MARKET_GROUPS
+  // below and the .pm-field--market markup in the form above.
+  var MARKET_AREAS = [
+    { city: "Denver", areas: ["Denver","Downtown Denver","Central Denver","North Denver","South Denver","East Denver","West Denver"] },
+    { city: "Aurora", areas: ["Aurora","North Aurora","Central Aurora","East Aurora","South Aurora","Southeast Aurora"] },
+    { city: "Arvada", areas: ["Arvada","West Arvada","Central Arvada","North Arvada"] },
+    { city: "Boulder", areas: ["Boulder","North Boulder","South Boulder","East Boulder","Central Boulder"] },
+    { city: "Brighton", areas: ["Brighton"] },
+    { city: "Broomfield", areas: ["Broomfield"] },
+    { city: "Castle Rock", areas: ["Castle Rock","North Castle Rock","South Castle Rock"] },
+    { city: "Centennial", areas: ["Centennial"] },
+    { city: "Commerce City", areas: ["Commerce City"] },
+    { city: "Englewood", areas: ["Englewood"] },
+    { city: "Erie", areas: ["Erie"] },
+    { city: "Evergreen", areas: ["Evergreen"] },
+    { city: "Federal Heights", areas: ["Federal Heights"] },
+    { city: "Golden", areas: ["Golden"] },
+    { city: "Highlands Ranch", areas: ["Highlands Ranch"] },
+    { city: "Lakewood", areas: ["Lakewood","West Lakewood","North Lakewood"] },
+    { city: "Littleton", areas: ["Littleton"] },
+    { city: "Lone Tree", areas: ["Lone Tree"] },
+    { city: "Louisville", areas: ["Louisville"] },
+    { city: "Parker", areas: ["Parker","South Parker"] },
+    { city: "Thornton", areas: ["Thornton","North Thornton","East Thornton"] },
+    { city: "Westminster", areas: ["Westminster","North Westminster","South Westminster"] },
+    { city: "Wheat Ridge", areas: ["Wheat Ridge"] },
+    { city: "Colorado Springs", areas: ["Colorado Springs","North Colorado Springs","South Colorado Springs","East Colorado Springs","West Colorado Springs","Briargate","Monument"] },
+    { city: "Falcon", areas: ["Falcon"] },
+    { city: "Fort Collins", areas: ["Fort Collins","Old Town Fort Collins","North Fort Collins","South Fort Collins","Midtown Fort Collins"] },
+    { city: "Loveland", areas: ["Loveland"] },
+    { city: "Greeley", areas: ["Greeley"] },
+    { city: "Windsor", areas: ["Windsor"] },
+    { city: "Timnath", areas: ["Timnath"] },
+    { city: "Breckenridge", areas: ["Breckenridge"] },
+    { city: "Vail", areas: ["Vail"] },
+    { city: "Aspen", areas: ["Aspen"] },
+    { city: "Steamboat Springs", areas: ["Steamboat Springs"] },
+    { city: "Frisco", areas: ["Frisco"] },
+    { city: "Dillon", areas: ["Dillon"] },
+    { city: "Winter Park", areas: ["Winter Park"] },
+    { city: "Grand Junction", areas: ["Grand Junction"] },
+    { city: "Montrose", areas: ["Montrose"] },
+    { city: "Durango", areas: ["Durango"] },
+    { city: "Telluride", areas: ["Telluride"] },
+    { city: "Pueblo", areas: ["Pueblo"] },
+    { city: "Trinidad", areas: ["Trinidad"] },
+    { city: "Canon City", areas: ["Canon City"] },
+    { city: "Alamosa", areas: ["Alamosa"] },
+    { city: "Fort Morgan", areas: ["Fort Morgan"] },
+    { city: "Sterling", areas: ["Sterling"] },
+    { city: "Limon", areas: ["Limon"] }
+  ];
+
+  function marketPartneredIndexesFor(areas) {
+    if (areas.length < 3) { return []; }
+    return [1];
+  }
+
+  var MARKET_GROUPS = MARKET_AREAS.map(function (g) {
+    var partnered = marketPartneredIndexesFor(g.areas);
+    return {
+      city: g.city,
+      items: g.areas.map(function (name, i) {
+        return { name: name, available: partnered.indexOf(i) === -1 };
+      })
+    };
+  });
+
+  var marketInput = document.getElementById('pm-market');
+  var marketPanel = document.getElementById('pm-market-panel');
+
+  function renderMarketPanel(query) {
+    var q = query.trim().toLowerCase();
+    marketPanel.innerHTML = '';
+    var matchCount = 0;
+
+    MARKET_GROUPS.forEach(function (group) {
+      var matches = group.items.filter(function (item) {
+        return item.name.toLowerCase().indexOf(q) !== -1;
+      });
+      if (matches.length === 0) { return; }
+
+      var groupLabel = document.createElement('div');
+      groupLabel.className = 'market-group__label';
+      groupLabel.textContent = group.city;
+      marketPanel.appendChild(groupLabel);
+
+      matches.forEach(function (item) {
+        matchCount++;
+        var row = document.createElement('div');
+        row.className = 'market-item' + (item.available ? '' : ' is-unavailable');
+        var lockSvg = '<svg viewBox="0 0 24 24" width="9" height="9" fill="none" stroke="currentColor" stroke-width="2.6"><rect x="5" y="11" width="14" height="9" rx="1.5"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>';
+        row.innerHTML = '<span>' + item.name + '</span>' +
+          (item.available ? '' : '<span class="market-item__tag">' + lockSvg + 'Currently partnered</span>');
+        if (item.available) {
+          row.addEventListener('click', function () {
+            marketInput.value = item.name;
+            marketPanel.classList.remove('open');
+          });
+        }
+        marketPanel.appendChild(row);
+      });
+    });
+
+    if (matchCount === 0) {
+      var empty = document.createElement('div');
+      empty.className = 'market-panel-empty';
+      empty.textContent = 'No matching market. Try a nearby city.';
+      marketPanel.appendChild(empty);
+    }
+
+    marketPanel.classList.add('open');
+  }
+
+  if (marketInput && marketPanel) {
+    marketInput.addEventListener('input', function () { renderMarketPanel(marketInput.value); });
+    marketInput.addEventListener('focus', function () { renderMarketPanel(marketInput.value); });
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.pm-field--market')) {
+        marketPanel.classList.remove('open');
+      }
+    });
+  }
+
   function openModal() {
     lastFocusedEl = document.activeElement;
     overlay.hidden = false;
@@ -516,6 +648,7 @@ window.addEventListener('resize', function () {
     overlay.hidden = true;
     document.body.style.overflow = '';
     document.removeEventListener('keydown', onKeydown);
+    if (marketPanel) { marketPanel.classList.remove('open'); }
     if (lastFocusedEl && typeof lastFocusedEl.focus === 'function') {
       lastFocusedEl.focus();
     }
